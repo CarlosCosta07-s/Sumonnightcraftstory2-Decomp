@@ -29,8 +29,8 @@ Use `--mode thumb` for Thumb-code ranges and `--mode arm` for ARM-code ranges. G
 
 ## Project status
 
-The startup path, memory-fill setup, IRQ dispatcher installation, handler table, and VBlank handler are mapped. Initial equivalent C for state accessors and IRQ setup is in [`src/early_runtime.c`](src/early_runtime.c). Evidence and annotated assembly are in [`analysis/`](analysis/) and [`disasm/`](disasm/).
+The startup path, memory initialization, IRQ dispatcher and handler table are mapped. The VBlank path now includes a probable sound-engine service and mode-gated VCOUNT timing helpers; the scanline graphics updater copied to IWRAM is also reconstructed. Equivalent C excerpts are in [`src/early_runtime.c`](src/early_runtime.c), [`src/scanline_update.c`](src/scanline_update.c), and [`src/vblank_helpers.c`](src/vblank_helpers.c). Annotated assembly and evidence are in [`disasm/`](disasm/) and [`analysis/`](analysis/).
 
-The copied code blob at `0x08003C58`, several DMA setup callees, the large update routine at `0x080001D0`, and most of the game remain to be analyzed. No complete decompilation for this edition was found during the initial research.
+Several DMA setup callees, the large update routine at `0x080001D0`, the sound engine's deeper control flow, and most game systems remain to be analyzed. Symbol names are descriptive where original names are unavailable, and the reconstructed C excerpts are not yet part of a matching full build. No complete decompilation for this edition was found during the initial research.
 
 See [`docs/initial-analysis.md`](docs/initial-analysis.md) for ROM identification and community references.
