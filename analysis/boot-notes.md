@@ -28,7 +28,7 @@ It also copies a 0x100-byte ROM block from `0x08003C58` to `0x03002DB0`. The rou
 
 Slot 0 (VBlank) is replaced with `0x08003A2D`, targeting the Thumb handler at `0x08003A2C`. The initializer then writes `IE=0x2001`, enables VBlank IRQ in DISPSTAT (`0x04000004 = 8`), and enables IME (`0x04000208 = 1`). Detailed instructions are in [irq-install.md](irq-install.md) and [irq_install.s](../disasm/irq_install.s).
 
-The VBlank handler calls `0x080077E4`, increments the word at `0x03002ED4`, calls `0x0800774C`, and writes halfword `1` to `0x03007FF8`. The exact game-level meaning of the two callees is not established.
+The VBlank handler calls `0x080077E4`, increments the word at `0x03002ED4`, calls `0x0800774C`, and writes halfword `1` to `0x03007FF8`. `0x080077E4` forwards to a routine that validates a sound-engine state signature and touches sound/DMA-related registers. `0x0800774C` calls a sound-engine update wrapper when two RAM flags match, then stores a VCOUNT-derived delta at `0x0300303C`. The helper at `0x080077A0` applies the same calculation under the alternate mode flag. See [vblank-audio.md](vblank-audio.md).
 
 ## Thumb startup (`0x0800040C`)
 
@@ -36,4 +36,4 @@ At `0x0800040C`, the stub saves LR, calls `0x080002B8`, then loops through `0x08
 
 ## Confidence and next steps
 
-Addresses, modes, literal values, and register operations come directly from disassembly of the matching ROM. The IRQ table setup and scanline updater's per-line accesses are mapped. Remaining work includes identifying the scanline updater's caller, the VBlank callees, DMA helper callees, the ROM pointer targets at `0x03002FF0`, and the large update routine.
+Addresses, modes, literal values, and register operations come directly from disassembly of the matching ROM. The IRQ table setup and scanline updater's per-line accesses are mapped. Remaining work includes identifying the scanline updater's caller and the code that configures VCOUNT timing flags, analyzing DMA helper callees and ROM pointer targets at `0x03002FF0`, and mapping the large update routine.
