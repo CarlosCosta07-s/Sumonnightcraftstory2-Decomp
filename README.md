@@ -29,7 +29,7 @@ Use `--mode thumb` for Thumb-code ranges and `--mode arm` for ARM-code ranges. G
 
 ## Project status
 
-The startup path, memory-fill setup, IRQ dispatcher installation, handler table, and VBlank handler are mapped. See [`analysis/boot-notes.md`](analysis/boot-notes.md), [`analysis/irq-install.md`](analysis/irq-install.md), [`analysis/startup-runtime.md`](analysis/startup-runtime.md), and the annotated assembly under [`disasm/`](disasm/).
+The startup path, memory-fill setup, IRQ dispatcher installation, handler table, and VBlank handler are mapped. Initial equivalent C for state accessors and IRQ setup is in [`src/early_runtime.c`](src/early_runtime.c). Evidence and annotated assembly are in [`analysis/`](analysis/) and [`disasm/`](disasm/).
 
 The copied code blob at `0x08003C58`, several DMA setup callees, the large update routine at `0x080001D0`, and most of the game remain to be analyzed. No complete decompilation for this edition was found during the initial research.
 
