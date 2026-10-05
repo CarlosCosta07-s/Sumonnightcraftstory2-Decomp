@@ -1,0 +1,76 @@
+{
+  "rom": {
+    "title": "SWORDCRAFT2",
+    "game_code": "BSKE",
+    "revision": 0,
+    "sha256": "E267F052A3F138534F198BD33992D640568F80BF807E322C85C7B4CF6DD504AC",
+    "size": 16777216,
+    "gba_rom_base": "0x08000000"
+  },
+  "regions": [
+    {
+      "start": "0x00000000",
+      "end": "0x000000C0",
+      "kind": "header",
+      "mode": null,
+      "label": "gba_header",
+      "confidence": "confirmed"
+    },
+    {
+      "start": "0x000000C0",
+      "end": "0x000000F4",
+      "kind": "code",
+      "mode": "arm",
+      "label": "reset_stub",
+      "confidence": "high"
+    },
+    {
+      "start": "0x000000F4",
+      "end": "0x000000FC",
+      "kind": "literal_data",
+      "mode": null,
+      "label": "startup_stack_tops",
+      "confidence": "confirmed"
+    },
+    {
+      "start": "0x000000FC",
+      "end": "0x000001C4",
+      "kind": "code",
+      "mode": "arm",
+      "label": "irq_dispatcher",
+      "confidence": "high"
+    },
+    {
+      "start": "0x000001C4",
+      "end": "0x000001D0",
+      "kind": "pointer_data",
+      "mode": null,
+      "label": "startup_and_irq_literals",
+      "confidence": "confirmed"
+    },
+    {
+      "start": "0x0000040C",
+      "end": "0x00000428",
+      "kind": "code",
+      "mode": "thumb",
+      "label": "thumb_startup_loop",
+      "confidence": "high"
+    },
+    {
+      "start": "0x00000428",
+      "end": "0x0000042C",
+      "kind": "literal_data",
+      "mode": null,
+      "label": "startup_ram_pointer",
+      "confidence": "high"
+    },
+    {
+      "start": "0x0000042C",
+      "end": null,
+      "kind": "unclassified",
+      "mode": null,
+      "label": null,
+      "confidence": "unknown"
+    }
+  ]
+}
