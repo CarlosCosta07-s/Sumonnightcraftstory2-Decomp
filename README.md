@@ -29,6 +29,8 @@ Use `--mode thumb` for Thumb-code ranges and `--mode arm` for ARM-code ranges. G
 
 ## Project status
 
-The first ROM-specific analysis is in place: the reset stub, BIOS IRQ-vector installation, IRQ dispatch logic, and Thumb startup entry are documented and annotated. See [`analysis/boot-notes.md`](analysis/boot-notes.md) and [`disasm/early_boot.s`](disasm/early_boot.s). The IRQ handler table and startup helpers remain to be mapped; no complete decompilation for this edition was found during the initial research.
+Analysis now covers the reset/IRQ path and early Thumb startup. The early runtime routines set a startup-state word, configure WAITCNT, prepare DMA3 fill transfers for RAM/video memory regions, sample VCOUNT, and poll a separate runtime flag. Their disassembly and evidence are documented in [`analysis/startup-runtime.md`](analysis/startup-runtime.md), [`disasm/startup_runtime.s`](disasm/startup_runtime.s), and the expanded [`analysis/rom_map.json`](analysis/rom_map.json).
+
+The large update routine at `0x080001D0`, DMA helper callees, polling callees, and IRQ handler table still need to be identified. No complete decompilation for this edition was found during the initial research.
 
 See [`docs/initial-analysis.md`](docs/initial-analysis.md) for ROM identification and community references.
