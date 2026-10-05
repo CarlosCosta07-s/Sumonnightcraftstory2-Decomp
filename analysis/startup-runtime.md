@@ -38,6 +38,12 @@ The DMA source mode is fixed and destination mode increments; `0x8501` enables a
 
 After those fills, the routine calls `0x08003960` to install interrupts (see [irq-install.md](irq-install.md)), then `0x08003DA8`. The latter stores five constants into RAM at `0x03002FF0` through `0x03003000`; the purpose of that structure is not identified.
 
+## Per-frame dispatcher and indexed values
+
+The loop at `0x08000418` calls `0x080001D0` before setting the startup-state word and entering the poll helper. The dispatcher runs a fixed sequence of subsystem calls and conditionally invokes three more routines when indexed value `8` is not `1`. Its full call order is documented in [main-update.md](main-update.md), with assembly and C in [main_update.s](../disasm/main_update.s) and [main_update.c](../src/main_update.c).
+
+The dispatcher uses indexed read/write helpers at `0x08026908` and `0x080268B4`. They select word, signed halfword, or signed byte storage according to index range; the base pointers are held at `0x030067D0`, `0x0300659C`, and `0x030065A4`. The helper implementation is in [indexed_variables.c](../src/indexed_variables.c).
+
 ## Polling and scanline sample
 
 Routine `0x080003C4` repeatedly reads the word at `0x030028E8`. While nonzero, it calls `0x08000358`, `0x08025E28`, `0x08010438`, `0x08000398`, and `0x0808CFA8`, then checks the word again.
