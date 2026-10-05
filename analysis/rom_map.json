@@ -33,6 +33,17 @@
     {"start":"0x00000406","end":"0x0000040C","kind":"literal_data","mode":null,"label":"auxiliary_helper_literal","confidence":"high"},
     {"start":"0x0000040C","end":"0x00000428","kind":"code","mode":"thumb","label":"thumb_startup_loop","confidence":"high"},
     {"start":"0x00000428","end":"0x0000042C","kind":"literal_data","mode":null,"label":"startup_ram_pointer","confidence":"high"},
-    {"start":"0x0000042C","end":null,"kind":"unclassified","mode":null,"label":null,"confidence":"unknown"}
+    {"start":"0x0000042C","end":"0x00003960","kind":"unclassified","mode":null,"label":null,"confidence":"unknown"},
+    {"start":"0x00003960","end":"0x000039CC","kind":"code","mode":"thumb","label":"install_irq_system","confidence":"high"},
+    {"start":"0x000039CC","end":"0x00003A08","kind":"literal_data","mode":null,"label":"irq_install_literals","confidence":"confirmed"},
+    {"start":"0x00003A08","end":"0x00003A14","kind":"code","mode":"thumb","label":"set_irq_handler","confidence":"high"},
+    {"start":"0x00003A14","end":"0x00003A18","kind":"literal_data","mode":null,"label":"irq_table_pointer","confidence":"confirmed"},
+    {"start":"0x00003A18","end":"0x00003A24","kind":"code","mode":"thumb","label":"get_irq_handler","confidence":"high"},
+    {"start":"0x00003A24","end":"0x00003A28","kind":"literal_data","mode":null,"label":"irq_table_pointer","confidence":"confirmed"},
+    {"start":"0x00003A28","end":"0x00003A2A","kind":"code","mode":"thumb","label":"default_irq_handler","confidence":"high"},
+    {"start":"0x00003A2A","end":"0x00003A2C","kind":"padding","mode":null,"label":null,"confidence":"high"},
+    {"start":"0x00003A2C","end":"0x00003A48","kind":"code","mode":"thumb","label":"vblank_irq_handler","confidence":"high"},
+    {"start":"0x00003A48","end":"0x00003A50","kind":"literal_data","mode":null,"label":"vblank_handler_literals","confidence":"confirmed"},
+    {"start":"0x00003A50","end":null,"kind":"unclassified","mode":null,"label":null,"confidence":"unknown"}
   ]
 }
