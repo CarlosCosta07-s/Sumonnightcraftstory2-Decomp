@@ -834,6 +834,46 @@
     },
     {
       "start": "0x000692F8",
+      "end": "0x000693E4",
+      "kind": "unclassified",
+      "mode": null,
+      "label": null,
+      "confidence": "unknown"
+    },
+    {
+      "start": "0x000693E4",
+      "end": "0x000693FE",
+      "kind": "code",
+      "mode": "thumb",
+      "label": "state_poll_080693E4",
+      "confidence": "high"
+    },
+    {
+      "start": "0x000693FE",
+      "end": "0x00069400",
+      "kind": "padding",
+      "mode": null,
+      "label": null,
+      "confidence": "high"
+    },
+    {
+      "start": "0x00069400",
+      "end": "0x00069404",
+      "kind": "pointer_data",
+      "mode": null,
+      "label": "state_poll_pointer_literal",
+      "confidence": "confirmed"
+    },
+    {
+      "start": "0x00069404",
+      "end": "0x00069458",
+      "kind": "code",
+      "mode": "thumb",
+      "label": "state_poll_080693E4",
+      "confidence": "high"
+    },
+    {
+      "start": "0x00069458",
       "end": "0x000726C4",
       "kind": "unclassified",
       "mode": null,
