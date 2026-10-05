@@ -26,9 +26,10 @@ def main() -> None:
         parser.error(str(exc))
 
     checksum = (-sum(header[:0x1D]) - 0x19) & 0xFF
+    title = header[:12].decode("ascii", errors="replace").rstrip("\x00")
     print(f"Size: {len(data)} bytes")
     print(f"SHA-256: {hashlib.sha256(data).hexdigest().upper()}")
-    print(f"Title: {header[:12].decode('ascii', errors='replace').rstrip(chr(0)}")
+    print(f"Title: {title}")
     print(f"Game code: {header[12:16].decode('ascii', errors='replace')}")
     print(f"Maker code: {header[16:18].decode('ascii', errors='replace')}")
     print(f"Revision: {header[28]}")
