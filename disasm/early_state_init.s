@@ -108,7 +108,7 @@ install_rom_data_roots:
 
         .org 0x3DC0
         .word   0x03002FF0              @ destination RAM structure
-        .word   0x085015CC              @ ROM pointer 1 (file offset 0x1505CC)
+        .word   0x085015CC              @ ROM pointer 1 (file offset 0x5015CC)
         .word   0x08C7F5FC              @ ROM pointer 2 (file offset 0xC7F5FC)
         .word   0x08ABA81C              @ ROM pointer 3 (file offset 0xABA81C)
         .word   0x089436FC              @ ROM pointer 4 (file offset 0x9436FC)
