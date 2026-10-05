@@ -53,7 +53,7 @@
       "end": "0x00000288",
       "kind": "code",
       "mode": "thumb",
-      "label": "startup_loop_update",
+      "label": "frame_update_dispatcher",
       "confidence": "high"
     },
     {
@@ -594,6 +594,166 @@
     },
     {
       "start": "0x000077FC",
+      "end": "0x000268B4",
+      "kind": "unclassified",
+      "mode": null,
+      "label": null,
+      "confidence": "unknown"
+    },
+    {
+      "start": "0x000268B4",
+      "end": "0x000268CE",
+      "kind": "code",
+      "mode": "thumb",
+      "label": "set_indexed_value_word_range",
+      "confidence": "high"
+    },
+    {
+      "start": "0x000268CE",
+      "end": "0x000268D0",
+      "kind": "padding",
+      "mode": null,
+      "label": null,
+      "confidence": "high"
+    },
+    {
+      "start": "0x000268D0",
+      "end": "0x000268D4",
+      "kind": "pointer_data",
+      "mode": null,
+      "label": "indexed_word_base_pointer",
+      "confidence": "confirmed"
+    },
+    {
+      "start": "0x000268D4",
+      "end": "0x000268E6",
+      "kind": "code",
+      "mode": "thumb",
+      "label": "set_indexed_value_narrow_ranges",
+      "confidence": "high"
+    },
+    {
+      "start": "0x000268E6",
+      "end": "0x000268E8",
+      "kind": "padding",
+      "mode": null,
+      "label": null,
+      "confidence": "high"
+    },
+    {
+      "start": "0x000268E8",
+      "end": "0x000268EC",
+      "kind": "literal_data",
+      "mode": null,
+      "label": "indexed_storage_threshold",
+      "confidence": "confirmed"
+    },
+    {
+      "start": "0x000268EC",
+      "end": "0x000268F0",
+      "kind": "pointer_data",
+      "mode": null,
+      "label": "indexed_halfword_base_pointer",
+      "confidence": "confirmed"
+    },
+    {
+      "start": "0x000268F0",
+      "end": "0x00026900",
+      "kind": "code",
+      "mode": "thumb",
+      "label": "set_indexed_value_byte_range",
+      "confidence": "high"
+    },
+    {
+      "start": "0x00026900",
+      "end": "0x00026904",
+      "kind": "pointer_data",
+      "mode": null,
+      "label": "indexed_byte_base_pointer",
+      "confidence": "confirmed"
+    },
+    {
+      "start": "0x00026904",
+      "end": "0x00026908",
+      "kind": "literal_data",
+      "mode": null,
+      "label": "indexed_byte_offset",
+      "confidence": "confirmed"
+    },
+    {
+      "start": "0x00026908",
+      "end": "0x00026920",
+      "kind": "code",
+      "mode": "thumb",
+      "label": "get_indexed_value_word_range",
+      "confidence": "high"
+    },
+    {
+      "start": "0x00026920",
+      "end": "0x00026924",
+      "kind": "pointer_data",
+      "mode": null,
+      "label": "indexed_word_base_pointer",
+      "confidence": "confirmed"
+    },
+    {
+      "start": "0x00026924",
+      "end": "0x0002693C",
+      "kind": "code",
+      "mode": "thumb",
+      "label": "get_indexed_value_byte_range",
+      "confidence": "high"
+    },
+    {
+      "start": "0x0002693C",
+      "end": "0x00026940",
+      "kind": "literal_data",
+      "mode": null,
+      "label": "indexed_storage_threshold",
+      "confidence": "confirmed"
+    },
+    {
+      "start": "0x00026940",
+      "end": "0x00026944",
+      "kind": "pointer_data",
+      "mode": null,
+      "label": "indexed_byte_base_pointer",
+      "confidence": "confirmed"
+    },
+    {
+      "start": "0x00026944",
+      "end": "0x00026948",
+      "kind": "literal_data",
+      "mode": null,
+      "label": "indexed_byte_offset",
+      "confidence": "confirmed"
+    },
+    {
+      "start": "0x00026948",
+      "end": "0x0002695A",
+      "kind": "code",
+      "mode": "thumb",
+      "label": "get_indexed_value_halfword_range",
+      "confidence": "high"
+    },
+    {
+      "start": "0x0002695A",
+      "end": "0x0002695C",
+      "kind": "padding",
+      "mode": null,
+      "label": null,
+      "confidence": "high"
+    },
+    {
+      "start": "0x0002695C",
+      "end": "0x00026960",
+      "kind": "pointer_data",
+      "mode": null,
+      "label": "indexed_halfword_base_pointer",
+      "confidence": "confirmed"
+    },
+    {
+      "start": "0x00026960",
       "end": null,
       "kind": "unclassified",
       "mode": null,
