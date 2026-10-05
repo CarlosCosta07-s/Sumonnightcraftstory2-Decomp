@@ -29,11 +29,11 @@ irq_dispatch:
         add     r3, r3, #0x200          @ IE and IF at 0x04000200/202
         ldr     r2, [r3]                @ packed IF:IE on 16-bit GBA bus
         and     r1, r2, r2, lsr #16     @ pending AND enabled interrupts
-        ands    r0, r1, #0x2000         @ VBlank? (high interrupt bit check)
-        strbne  r0, [r3, #-0x17C]       @ acknowledge selected request at 0x04000084
-        bne     0x08000114              @ spin while that request remains set
+        ands    r0, r1, #0x2000         @ special handling for IRQ bit 13
+        strbne  r0, [r3, #-0x17C]       @ writes IO address 0x04000084; purpose TBD
+        bne     0x08000114              @ loop while bit 13 remains pending
         mov     r2, #0
-        @ The following repeated tests find the lowest pending/enabled IRQ bit.
+        @ Tests below find the lowest pending/enabled IRQ bit 0..12.
         @ Each no-match path advances r2 by four bytes in the handler table.
         ands    r0, r1, #0x0001
         bne     irq_dispatch_table
