@@ -22,12 +22,13 @@ Requires Python 3.10+.
 python tools/inspect_rom.py "/path/to/Summon Night - Swordcraft Story 2 (USA).gba"
 python -m pip install -r requirements.txt
 python tools/disassemble.py "/path/to/rom.gba" --start 0xC0 --size 0x200 --mode arm
+python tools/disassemble.py "/path/to/rom.gba" --start 0x40C --size 0x100 --mode thumb
 ```
 
-Use `--mode thumb` for a Thumb-code range. GBA ROM addresses start at `0x08000000`; tool offsets are file offsets unless otherwise stated.
+Use `--mode thumb` for Thumb-code ranges and `--mode arm` for ARM-code ranges. GBA ROM addresses start at `0x08000000`; tool offsets are file offsets unless otherwise stated. Disassembly is mechanical; literal pools and embedded data must be marked manually.
 
 ## Project status
 
-This is the initial scaffold. No complete decompilation for this edition was found during the initial research. Disassembly must be classified and annotated before translating routines to C; code and embedded data can be interleaved, so ranges should be chosen deliberately.
+The first ROM-specific analysis is in place: the reset stub, BIOS IRQ-vector installation, IRQ dispatch logic, and Thumb startup entry are documented and annotated. See [`analysis/boot-notes.md`](analysis/boot-notes.md) and [`disasm/early_boot.s`](disasm/early_boot.s). The IRQ handler table and startup helpers remain to be mapped; no complete decompilation for this edition was found during the initial research.
 
-See [`docs/initial-analysis.md`](docs/initial-analysis.md) for the first findings. Community research on text/compression formats is linked there.
+See [`docs/initial-analysis.md`](docs/initial-analysis.md) for ROM identification and community references.
