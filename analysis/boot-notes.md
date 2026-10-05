@@ -24,7 +24,7 @@ For bits `0x0001` through `0x1000`, the dispatcher checks the pending mask from 
 
 The initializer at `0x08003960` fills table slots 0-12 at `0x03002D00` with a default Thumb no-op at `0x08003A28`. It copies the dispatcher and its literal pool (0x100 bytes) from ROM `0x080000FC` to IWRAM `0x03002EE0`, then changes the BIOS vector to that IWRAM copy.
 
-It also copies a 0x100-byte ROM block from `0x08003C58` to `0x03002DB0`. The routine in the copied block reads VCOUNT, processes per-slot line/event tables, and writes values to graphics IO registers; its likely role is scanline/raster updates. See [scanline-update.md](scanline-update.md) and the equivalent C in [scanline_update.c](../src/scanline_update.c).
+It also copies a 0x100-byte ROM block from `0x08003C58` to `0x03002DB0`. The routine in the copied block reads VCOUNT, processes per-slot line/event tables, and writes values to graphics IO registers; its role as a scanline/raster updater is supported by its later installation as the HBlank handler at `0x08003704`. See [scanline-update.md](scanline-update.md), [scanline_irq_setup.s](../disasm/scanline_irq_setup.s), and the equivalent C in [scanline_update.c](../src/scanline_update.c).
 
 Slot 0 (VBlank) is replaced with `0x08003A2D`, targeting the Thumb handler at `0x08003A2C`. The initializer then writes `IE=0x2001`, enables VBlank IRQ in DISPSTAT (`0x04000004 = 8`), and enables IME (`0x04000208 = 1`). Detailed instructions are in [irq-install.md](irq-install.md) and [irq_install.s](../disasm/irq_install.s).
 
