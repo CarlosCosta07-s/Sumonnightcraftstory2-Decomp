@@ -33,7 +33,11 @@
     {"start":"0x00000406","end":"0x0000040C","kind":"literal_data","mode":null,"label":"auxiliary_helper_literal","confidence":"high"},
     {"start":"0x0000040C","end":"0x00000428","kind":"code","mode":"thumb","label":"thumb_startup_loop","confidence":"high"},
     {"start":"0x00000428","end":"0x0000042C","kind":"literal_data","mode":null,"label":"startup_ram_pointer","confidence":"high"},
-    {"start":"0x0000042C","end":"0x00003960","kind":"unclassified","mode":null,"label":null,"confidence":"unknown"},
+    {"start":"0x0000042C","end":"0x000036A8","kind":"unclassified","mode":null,"label":null,"confidence":"unknown"},
+    {"start":"0x000036A8","end":"0x000036F2","kind":"code","mode":"thumb","label":"initialize_scanline_state","confidence":"high"},
+    {"start":"0x000036F2","end":"0x000036F4","kind":"padding","mode":null,"label":null,"confidence":"high"},
+    {"start":"0x000036F4","end":"0x00003704","kind":"literal_data","mode":null,"label":"scanline_state_literals","confidence":"confirmed"},
+    {"start":"0x00003704","end":"0x00003960","kind":"unclassified","mode":null,"label":null,"confidence":"unknown"},
     {"start":"0x00003960","end":"0x000039CC","kind":"code","mode":"thumb","label":"install_irq_system","confidence":"high"},
     {"start":"0x000039CC","end":"0x00003A08","kind":"literal_data","mode":null,"label":"irq_install_literals","confidence":"confirmed"},
     {"start":"0x00003A08","end":"0x00003A14","kind":"code","mode":"thumb","label":"set_irq_handler","confidence":"high"},
@@ -44,6 +48,17 @@
     {"start":"0x00003A2A","end":"0x00003A2C","kind":"padding","mode":null,"label":null,"confidence":"high"},
     {"start":"0x00003A2C","end":"0x00003A48","kind":"code","mode":"thumb","label":"vblank_irq_handler","confidence":"high"},
     {"start":"0x00003A48","end":"0x00003A50","kind":"literal_data","mode":null,"label":"vblank_handler_literals","confidence":"confirmed"},
-    {"start":"0x00003A50","end":null,"kind":"unclassified","mode":null,"label":null,"confidence":"unknown"}
+    {"start":"0x00003A50","end":"0x00003C00","kind":"unclassified","mode":null,"label":null,"confidence":"unknown"},
+    {"start":"0x00003C00","end":"0x00003C3E","kind":"code","mode":"thumb","label":"clear_irq_runtime_state","confidence":"high"},
+    {"start":"0x00003C3E","end":"0x00003C40","kind":"padding","mode":null,"label":null,"confidence":"high"},
+    {"start":"0x00003C40","end":"0x00003C58","kind":"literal_data","mode":null,"label":"state_reset_literals","confidence":"confirmed"},
+    {"start":"0x00003C58","end":"0x00003D2E","kind":"code","mode":"thumb","label":"scanline_update_iwram_copy","confidence":"high"},
+    {"start":"0x00003D2E","end":"0x00003D30","kind":"padding","mode":null,"label":null,"confidence":"high"},
+    {"start":"0x00003D30","end":"0x00003D58","kind":"literal_data","mode":null,"label":"scanline_update_literals","confidence":"confirmed"},
+    {"start":"0x00003D58","end":"0x00003DA8","kind":"unclassified","mode":null,"label":null,"confidence":"unknown"},
+    {"start":"0x00003DA8","end":"0x00003DBE","kind":"code","mode":"thumb","label":"install_rom_data_roots","confidence":"high"},
+    {"start":"0x00003DBE","end":"0x00003DC0","kind":"padding","mode":null,"label":null,"confidence":"high"},
+    {"start":"0x00003DC0","end":"0x00003DD8","kind":"pointer_data","mode":null,"label":"rom_data_roots","confidence":"confirmed"},
+    {"start":"0x00003DD8","end":null,"kind":"unclassified","mode":null,"label":null,"confidence":"unknown"}
   ]
 }
