@@ -36,5 +36,5 @@ At `0x0800040C`, the stub saves LR, calls `0x080002B8`, then loops through `0x08
 
 ## Confidence and next steps
 
-Addresses, modes, literal values, and register operations come directly from disassembly of the matching ROM. The IRQ table setup and scanline updater's per-line accesses are mapped. Remaining work includes identifying the higher-level conditions that select the HBlank setup and configure VCOUNT timing flags, analyzing DMA helper callees and ROM pointer targets at `0x03002FF0`, and mapping the large update routine.
+Addresses, modes, literal values, and register operations come directly from disassembly of the matching ROM. The IRQ table setup and scanline updater's per-line accesses are mapped. Remaining work includes resolving the higher-level conditions that select the HBlank setup and configure VCOUNT timing flags, analyzing DMA helper callees and ROM pointer targets at `0x03002FF0`, and identifying the subsystems behind the frame-update calls.
 
