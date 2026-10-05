@@ -9,9 +9,9 @@ extern void set_indexed_value_080268B4(uint16_t index, uint32_t value);
 extern void sub_080266DC(uint16_t record_index, uint32_t pointer_value);
 extern void sub_080266F8(int32_t value);
 extern void sub_08026728(uint32_t a, uint32_t b, uint32_t c);
-extern void sub_0802660C(void);
-extern void sub_080726C4(void);
-extern void sub_08069270(void);
+extern void initialize_indexed_storage_0802660C(void);
+extern void initialize_runtime_pointer_roots_080726C4(void);
+extern void initialize_secondary_runtime_block_08069270(void);
 extern void sub_080011F8(void);
 extern void sub_080063FC(void);
 extern void sub_0800D8A8(void);
@@ -43,7 +43,7 @@ void frame_update_dispatcher_080001D0(void) {
     sub_0801053C();
 
     if (get_indexed_value_08026908(8) != 1) {
-        sub_0802660C();
+        initialize_indexed_storage_0802660C();
     }
 
     sub_0800D908();
@@ -55,10 +55,10 @@ void frame_update_dispatcher_080001D0(void) {
     sub_080548CC();
 
     if (get_indexed_value_08026908(8) != 1) {
-        sub_080726C4();
+        initialize_runtime_pointer_roots_080726C4();
     }
     if (get_indexed_value_08026908(8) != 1) {
-        sub_08069270();
+        initialize_secondary_runtime_block_08069270();
     }
 
     sub_0807CB8C();
