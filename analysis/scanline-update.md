@@ -10,7 +10,7 @@ Startup's IRQ initializer copies 0x100 bytes from ROM `0x08003C58` to IWRAM `0x0
 4. Inspect the slot's 0x20-byte record at `0x03002D40 + 0x20 * slot`. It contains four 8-byte events of the form `{destination pointer, scanline, halfword value}`. For each event whose scanline equals VCOUNT, write its value to its destination.
 5. If the low halfword of the stream pointer at `0x03002FE0 + 4 * slot` is nonzero, load four halfwords for this scanline from each of two per-line streams (`0x03002FE0` and `0x03002EB0`) and write them to graphics IO addresses `0x04000028-0x0400002E` and `0x04000020`, `0x04000024`, `0x04000026`, and `0x0400002A`.
 
-The IO writes and scanline-indexed tables strongly indicate raster/affine graphics updates. The routine's caller and the semantic names of its table slots remain unknown; the current name is descriptive, not an original symbol.
+The IO writes and scanline-indexed tables strongly indicate raster/affine graphics updates. The HBlank caller is confirmed by the handler-table write and interrupt-enable bits described below. The semantic names of its table slots remain unknown; the current routine name is descriptive, not an original symbol.
 
 ## HBlank installation
 
