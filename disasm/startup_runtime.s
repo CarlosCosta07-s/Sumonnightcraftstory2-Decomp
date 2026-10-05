@@ -98,9 +98,8 @@ memory_and_hardware_init:
         .word   0x00004014              @ WAITCNT value
         .word   0x55555555              @ fill pattern
         .word   0x040000D4              @ DMA3 source register
-        .word   0x85010000              @ DMA3 zero count / control
+        .word   0x85010000              @ DMA3 count/control
         .word   0x85010000
         .word   0x85010000
         .word   0x85010000
-        .word   0x85010000
-        .word   0x030028E8              @ separate runtime-active flag
+        .word   0x85010000              @ literal pool ends at 0x08000358
