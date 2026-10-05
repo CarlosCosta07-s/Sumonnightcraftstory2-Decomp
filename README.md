@@ -29,8 +29,8 @@ Use `--mode thumb` for Thumb-code ranges and `--mode arm` for ARM-code ranges. G
 
 ## Project status
 
-Analysis now covers the reset/IRQ path and early Thumb startup. The early runtime routines set a startup-state word, configure WAITCNT, prepare DMA3 fill transfers for RAM/video memory regions, sample VCOUNT, and poll a separate runtime flag. Their disassembly and evidence are documented in [`analysis/startup-runtime.md`](analysis/startup-runtime.md), [`disasm/startup_runtime.s`](disasm/startup_runtime.s), and the expanded [`analysis/rom_map.json`](analysis/rom_map.json).
+The startup path, memory-fill setup, IRQ dispatcher installation, handler table, and VBlank handler are mapped. See [`analysis/boot-notes.md`](analysis/boot-notes.md), [`analysis/irq-install.md`](analysis/irq-install.md), [`analysis/startup-runtime.md`](analysis/startup-runtime.md), and the annotated assembly under [`disasm/`](disasm/).
 
-The large update routine at `0x080001D0`, DMA helper callees, polling callees, and IRQ handler table still need to be identified. No complete decompilation for this edition was found during the initial research.
+The copied code blob at `0x08003C58`, several DMA setup callees, the large update routine at `0x080001D0`, and most of the game remain to be analyzed. No complete decompilation for this edition was found during the initial research.
 
 See [`docs/initial-analysis.md`](docs/initial-analysis.md) for ROM identification and community references.
