@@ -16,17 +16,17 @@ dispatch_state_080692A8:
         cmp     r0, #1
         beq     .Lstate_1
         b       .Lreturn_state
+
+        .org 0x692C0
+        .word   0x03006884
+
+        .org 0x692C4
 .Lstate_above_4:
         cmp     r0, #8
         beq     .Lstate_8
         cmp     r0, #12
         beq     .Lstate_12
         b       .Lreturn_state
-
-        .org 0x692C0
-        .word   0x03006884
-
-        .org 0x692C4
 .Lstate_1:
         bl      0x08069594
         lsls    r0, r0, #16
