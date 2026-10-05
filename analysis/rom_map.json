@@ -594,6 +594,38 @@
     },
     {
       "start": "0x000077FC",
+      "end": "0x0002660C",
+      "kind": "unclassified",
+      "mode": null,
+      "label": null,
+      "confidence": "unknown"
+    },
+    {
+      "start": "0x0002660C",
+      "end": "0x00026664",
+      "kind": "code",
+      "mode": "thumb",
+      "label": "initialize_indexed_storage",
+      "confidence": "high"
+    },
+    {
+      "start": "0x00026664",
+      "end": "0x00026668",
+      "kind": "padding",
+      "mode": null,
+      "label": null,
+      "confidence": "high"
+    },
+    {
+      "start": "0x00026668",
+      "end": "0x000266A4",
+      "kind": "literal_data",
+      "mode": null,
+      "label": "indexed_storage_init_literals",
+      "confidence": "confirmed"
+    },
+    {
+      "start": "0x000266A4",
       "end": "0x000268B4",
       "kind": "unclassified",
       "mode": null,
@@ -754,6 +786,62 @@
     },
     {
       "start": "0x00026960",
+      "end": "0x00069270",
+      "kind": "unclassified",
+      "mode": null,
+      "label": null,
+      "confidence": "unknown"
+    },
+    {
+      "start": "0x00069270",
+      "end": "0x0006929C",
+      "kind": "code",
+      "mode": "thumb",
+      "label": "initialize_secondary_runtime_block",
+      "confidence": "high"
+    },
+    {
+      "start": "0x0006929C",
+      "end": "0x000692A8",
+      "kind": "literal_data",
+      "mode": null,
+      "label": "secondary_runtime_init_literals",
+      "confidence": "confirmed"
+    },
+    {
+      "start": "0x000692A8",
+      "end": "0x000726C4",
+      "kind": "unclassified",
+      "mode": null,
+      "label": null,
+      "confidence": "unknown"
+    },
+    {
+      "start": "0x000726C4",
+      "end": "0x000726D2",
+      "kind": "code",
+      "mode": "thumb",
+      "label": "initialize_runtime_pointer_roots",
+      "confidence": "high"
+    },
+    {
+      "start": "0x000726D2",
+      "end": "0x000726D4",
+      "kind": "padding",
+      "mode": null,
+      "label": null,
+      "confidence": "high"
+    },
+    {
+      "start": "0x000726D4",
+      "end": "0x000726E4",
+      "kind": "literal_data",
+      "mode": null,
+      "label": "runtime_pointer_init_literals",
+      "confidence": "confirmed"
+    },
+    {
+      "start": "0x000726E4",
       "end": null,
       "kind": "unclassified",
       "mode": null,
