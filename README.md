@@ -29,9 +29,9 @@ Use `--mode thumb` for Thumb-code ranges and `--mode arm` for ARM-code ranges. G
 
 ## Project status
 
-The startup path, memory initialization, IRQ dispatcher and handler table are mapped. The scanline graphics updater copied to IWRAM is reconstructed and its HBlank installation is identified. The VBlank path includes a probable sound-engine service and mode-gated VCOUNT timing helpers. Equivalent C excerpts are in [`src/early_runtime.c`](src/early_runtime.c), [`src/scanline_update.c`](src/scanline_update.c), [`src/scanline_irq_setup.c`](src/scanline_irq_setup.c), and [`src/vblank_helpers.c`](src/vblank_helpers.c). Annotated assembly and evidence are in [`disasm/`](disasm/) and [`analysis/`](analysis/).
+The startup path, memory initialization, IRQ dispatcher and handler table are mapped. The scanline graphics updater copied to IWRAM is reconstructed and its HBlank installation is identified. The VBlank path includes a probable sound-engine service and mode-gated VCOUNT timing helpers. Equivalent C excerpts are in [`src/early_runtime.c`](src/early_runtime.c), [`src/scanline_update.c`](src/scanline_update.c), [`src/scanline_irq_setup.c`](src/scanline_irq_setup.c), , [`src/indexed_variables.c`](src/indexed_variables.c), [`src/main_update.c`](src/main_update.c), and [`src/vblank_helpers.c`](src/vblank_helpers.c). Annotated assembly and evidence are in [`disasm/`](disasm/) and [`analysis/`](analysis/).
 
-Several DMA setup callees, the large update routine at `0x080001D0`, the sound engine's deeper control flow, HBlank activation conditions, and most game systems remain to be analyzed. Symbol names are descriptive where original names are unavailable, and the reconstructed C excerpts are not yet part of a matching full build. No complete decompilation for this edition was found during the initial research.
+Most callees of the frame update dispatcher, several DMA setup helpers, the sound engine's deeper control flow, HBlank activation conditions, and most game systems remain to be analyzed. Symbol names are descriptive where original names are unavailable, and the reconstructed C excerpts are not yet part of a matching full build. No complete decompilation for this edition was found during the initial research.
 
 See [`docs/initial-analysis.md`](docs/initial-analysis.md) for ROM identification and community references.
 
