@@ -19,7 +19,9 @@ state_poll_080693E4:
         beq     .Lstate_1
         b       .Lcheck_state
 
-        .org 0x69400
+        .org 0x693FE
+        .hword  0x0000                   @ alignment padding
+\n        .org 0x69400
         .word   0x03006884
 
         .org 0x69404
