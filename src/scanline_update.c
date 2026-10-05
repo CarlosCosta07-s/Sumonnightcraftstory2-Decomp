@@ -4,6 +4,7 @@
  * The RAM table names and the overall graphics role are provisional.
  */
 
+#include <stddef.h>
 #include <stdint.h>
 
 #define GBA_PTR(type, address) ((type *)(uintptr_t)(address))
@@ -28,8 +29,8 @@ void scanline_update_recovered(void)
     if (line_destination_a != 0) {
         const volatile uint32_t *const line_sources_a =
             GBA_PTR(volatile uint32_t, 0x03002D90);
-        const uint16_t *const source =
-            (const uint16_t *)(uintptr_t)line_sources_a[slot];
+        const volatile uint16_t *const source =
+            (const volatile uint16_t *)(uintptr_t)line_sources_a[slot];
         *GBA_PTR(volatile uint16_t, line_destination_a) = source[line];
     }
 
@@ -39,8 +40,8 @@ void scanline_update_recovered(void)
     if (line_destination_b != 0) {
         const volatile uint32_t *const line_sources_b =
             GBA_PTR(volatile uint32_t, 0x03002D98);
-        const uint16_t *const source =
-            (const uint16_t *)(uintptr_t)line_sources_b[slot];
+        const volatile uint16_t *const source =
+            (const volatile uint16_t *)(uintptr_t)line_sources_b[slot];
         *GBA_PTR(volatile uint16_t, line_destination_b) = source[line];
     }
 
@@ -60,15 +61,15 @@ void scanline_update_recovered(void)
     if ((uint16_t)stream_a_pointers[slot] == 0)
         return;
 
-    const uint16_t *const stream_a =
-        (const uint16_t *)(uintptr_t)stream_a_pointers[slot];
+    const volatile uint16_t *const stream_a =
+        (const volatile uint16_t *)(uintptr_t)stream_a_pointers[slot];
     volatile uint32_t *const stream_b_pointers =
         GBA_PTR(volatile uint32_t, 0x03002EB0);
-    const uint16_t *const stream_b =
-        (const uint16_t *)(uintptr_t)stream_b_pointers[slot];
+    const volatile uint16_t *const stream_b =
+        (const volatile uint16_t *)(uintptr_t)stream_b_pointers[slot];
 
-    const uint16_t *const row_a = stream_a + (size_t)line * 4;
-    const uint16_t *const row_b = stream_b + (size_t)line * 4;
+    const volatile uint16_t *const row_a = stream_a + (size_t)line * 4;
+    const volatile uint16_t *const row_b = stream_b + (size_t)line * 4;
     volatile uint16_t *const io_a =
         GBA_PTR(volatile uint16_t, 0x04000028);
     volatile uint16_t *const io_b =
