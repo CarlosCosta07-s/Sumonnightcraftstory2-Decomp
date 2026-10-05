@@ -5,9 +5,9 @@ The startup loop at `0x08000418` calls `0x080001D0` on each iteration. The routi
 ## Update order
 
 1. Unconditional calls: `0x080011F8`, `0x080063FC`, `0x0800D8A8`, `0x08007D10`, `0x080139AC`, `0x08001964`, `0x080126E8`, `0x08013710`, and `0x0801053C`.
-2. Read indexed value `8` using `0x08026908`. If it is not `1`, call `0x0802660C`.
+2. Read indexed value `8` using `0x08026908`. If it is not `1`, call `0x0802660C` (`initialize_indexed_storage_0802660C`).
 3. Unconditional calls: `0x0800D908`, `0x080069D8`, `0x08005540`, `0x0800A154`, `0x08012058`, `0x08009CDC`, and `0x080548CC`.
-4. Read indexed value `8` again; call `0x080726C4` unless the value is `1`. Read it a third time; call `0x08069270` unless it is `1`.
+4. Read indexed value `8` again; call `0x080726C4` (`initialize_runtime_pointer_roots_080726C4`) unless the value is `1`. Read it a third time; call `0x08069270` (`initialize_secondary_runtime_block_08069270`) unless it is `1`.
 5. Call `0x0807CB8C` and `0x0808ACCC`; store `0x02003200` in record slot 0 via `0x080266DC`; set indexed values 0-3 to `0x55555555`; pass indexed value 4 to `0x080266F8`; and call `0x08026728` with three zero arguments.
 
 The repeated reads show that indexed value 8 gates three separate update paths. Their game-level names and whether their state can change between reads remain unknown.
@@ -22,9 +22,9 @@ The repeated reads show that indexed value 8 gates three separate update paths. 
 | `0x0040-0x017F` | 16-bit halfword | `base = *(u32 *)0x0300659C`; then `base + 2 * index - 0x80` | sign-extend halfword |
 | `0x0180-0xFFFF` | byte | `base = *(u32 *)0x030065A4`; then `base + index - 0x180` | sign-extend byte |
 
-The three globals hold base pointers; their initialization and the meaning of individual indices are still being traced. The source reconstruction is in [indexed_variables.c](../src/indexed_variables.c), and both accessors are annotated in [indexed_variables.s](../disasm/indexed_variables.s).
+The initializer at `0x0802660C` sets the three indexed-storage base pointers to `0x02000000`, `0x02000100`, and `0x02000380`, matching the accessor address calculations above. It also installs three additional pointer roots at `0x030067CC`, `0x03006590`, and `0x030067C8`, targeting `0x02000540`, `0x02000580`, and `0x02000680`. The source reconstruction is in [indexed_variables.c](../src/indexed_variables.c), and both accessors are annotated in [indexed_variables.s](../disasm/indexed_variables.s). The initializer is listed in [indexed_storage_init.s](../disasm/indexed_storage_init.s) and reconstructed in [indexed_storage_init.c](../src/indexed_storage_init.c).
 
-## Confidence and next work
+## Other gated initialization paths\n\nThe dispatcher’s second gated path, at `0x080726C4`, writes `0x02001000` through the pointer global at `0x03006894` and writes ROM address `0x084F3284` through `0x0300689C`. Its address-based reconstruction is in [runtime_pointer_init.s](../disasm/runtime_pointer_init.s) and [runtime_pointer_init.c](../src/runtime_pointer_init.c).\n\nThe third gated path, at `0x08069270`, sets `*(u32 *)0x03006860` to `0x02002800`, calls the `0x0808CF70` SVC #0x0B wrapper with a zero halfword on the stack, destination `0x02002800`, and control argument `0x010000D6`, then writes zero to `0x020029A8` (`base + 0x1A8`). See [secondary_runtime_init.s](../disasm/secondary_runtime_init.s) and [secondary_runtime_init.c](../src/secondary_runtime_init.c). The SVC wrapper is confirmed; its full transfer semantics and these pointed-to structures’ game-level roles remain unknown.\n\n## Confidence and next work
 
 The call order, branch conditions, literal values, and index thresholds come directly from the matching ROM. The names in the C source are descriptive. Next, analyze the repeated callees and trace where indexed values 4 and 8 are written.
 
