@@ -8,69 +8,31 @@
     "gba_rom_base": "0x08000000"
   },
   "regions": [
-    {
-      "start": "0x00000000",
-      "end": "0x000000C0",
-      "kind": "header",
-      "mode": null,
-      "label": "gba_header",
-      "confidence": "confirmed"
-    },
-    {
-      "start": "0x000000C0",
-      "end": "0x000000F4",
-      "kind": "code",
-      "mode": "arm",
-      "label": "reset_stub",
-      "confidence": "high"
-    },
-    {
-      "start": "0x000000F4",
-      "end": "0x000000FC",
-      "kind": "literal_data",
-      "mode": null,
-      "label": "startup_stack_tops",
-      "confidence": "confirmed"
-    },
-    {
-      "start": "0x000000FC",
-      "end": "0x000001C4",
-      "kind": "code",
-      "mode": "arm",
-      "label": "irq_dispatcher",
-      "confidence": "high"
-    },
-    {
-      "start": "0x000001C4",
-      "end": "0x000001D0",
-      "kind": "pointer_data",
-      "mode": null,
-      "label": "startup_and_irq_literals",
-      "confidence": "confirmed"
-    },
-    {
-      "start": "0x0000040C",
-      "end": "0x00000428",
-      "kind": "code",
-      "mode": "thumb",
-      "label": "thumb_startup_loop",
-      "confidence": "high"
-    },
-    {
-      "start": "0x00000428",
-      "end": "0x0000042C",
-      "kind": "literal_data",
-      "mode": null,
-      "label": "startup_ram_pointer",
-      "confidence": "high"
-    },
-    {
-      "start": "0x0000042C",
-      "end": null,
-      "kind": "unclassified",
-      "mode": null,
-      "label": null,
-      "confidence": "unknown"
-    }
+    {"start":"0x00000000","end":"0x000000C0","kind":"header","mode":null,"label":"gba_header","confidence":"confirmed"},
+    {"start":"0x000000C0","end":"0x000000F4","kind":"code","mode":"arm","label":"reset_stub","confidence":"high"},
+    {"start":"0x000000F4","end":"0x000000FC","kind":"literal_data","mode":null,"label":"startup_stack_tops","confidence":"confirmed"},
+    {"start":"0x000000FC","end":"0x000001C4","kind":"code","mode":"arm","label":"irq_dispatcher","confidence":"high"},
+    {"start":"0x000001C4","end":"0x000001D0","kind":"pointer_data","mode":null,"label":"startup_and_irq_literals","confidence":"confirmed"},
+    {"start":"0x000001D0","end":"0x00000288","kind":"code","mode":"thumb","label":"startup_loop_update","confidence":"high"},
+    {"start":"0x00000288","end":"0x00000290","kind":"literal_data","mode":null,"label":"loop_update_literals","confidence":"confirmed"},
+    {"start":"0x00000290","end":"0x0000029A","kind":"code","mode":"thumb","label":"set_startup_state","confidence":"high"},
+    {"start":"0x0000029A","end":"0x000002A0","kind":"literal_data","mode":null,"label":"state_pointer_literal","confidence":"confirmed"},
+    {"start":"0x000002A0","end":"0x000002A6","kind":"code","mode":"thumb","label":"get_startup_state","confidence":"high"},
+    {"start":"0x000002A6","end":"0x000002AC","kind":"literal_data","mode":null,"label":"state_pointer_literal","confidence":"confirmed"},
+    {"start":"0x000002AC","end":"0x000002B4","kind":"code","mode":"thumb","label":"set_startup_state_one","confidence":"high"},
+    {"start":"0x000002B4","end":"0x000002B8","kind":"literal_data","mode":null,"label":"state_pointer_literal","confidence":"confirmed"},
+    {"start":"0x000002B8","end":"0x00000334","kind":"code","mode":"thumb","label":"memory_and_hardware_init","confidence":"high"},
+    {"start":"0x00000334","end":"0x00000358","kind":"literal_data","mode":null,"label":"memory_init_literals","confidence":"confirmed"},
+    {"start":"0x00000358","end":"0x0000038E","kind":"code","mode":"thumb","label":"runtime_step_a","confidence":"high"},
+    {"start":"0x0000038E","end":"0x00000398","kind":"literal_data","mode":null,"label":"vcount_sample_literals","confidence":"confirmed"},
+    {"start":"0x00000398","end":"0x000003C2","kind":"code","mode":"thumb","label":"runtime_step_b","confidence":"high"},
+    {"start":"0x000003C2","end":"0x000003C4","kind":"padding","mode":null,"label":null,"confidence":"high"},
+    {"start":"0x000003C4","end":"0x000003F0","kind":"code","mode":"thumb","label":"runtime_poll_loop","confidence":"high"},
+    {"start":"0x000003F0","end":"0x000003F4","kind":"literal_data","mode":null,"label":"runtime_flag_pointer","confidence":"confirmed"},
+    {"start":"0x000003F4","end":"0x00000406","kind":"code","mode":"thumb","label":"auxiliary_helper","confidence":"high"},
+    {"start":"0x00000406","end":"0x0000040C","kind":"literal_data","mode":null,"label":"auxiliary_helper_literal","confidence":"high"},
+    {"start":"0x0000040C","end":"0x00000428","kind":"code","mode":"thumb","label":"thumb_startup_loop","confidence":"high"},
+    {"start":"0x00000428","end":"0x0000042C","kind":"literal_data","mode":null,"label":"startup_ram_pointer","confidence":"high"},
+    {"start":"0x0000042C","end":null,"kind":"unclassified","mode":null,"label":null,"confidence":"unknown"}
   ]
 }
