@@ -18,6 +18,6 @@ The routine replaces handler-table slot 0 (VBlank) with `0x08003A2D`, targeting 
 - `DISPSTAT = 0x0008` at `0x04000004` (VBlank IRQ enable);
 - `IME = 1` at `0x04000208` (master enable).
 
-The VBlank handler at `0x08003A2C` calls `0x080077E4`, increments the word at `0x03002ED4`, calls `0x0800774C`, and writes halfword `1` to `0x03007FF8`. That final address is in BIOS work RAM; its exact interaction with the BIOS is not yet documented here.
+The VBlank handler at `0x08003A2C` calls `0x080077E4`, increments the word at `0x03002ED4`, calls `0x0800774C`, and writes halfword `1` to `0x03007FF8`. The first helper forwards to `0x0808B474`, which validates a sound-engine state block and accesses DMA/audio-related hardware registers; it is likely the engine's VBlank sound service. The second helper calls `0x0808BB38` (a wrapper around `0x0808AE94`) under RAM-flag conditions and records a VCOUNT delta at `0x0300303C`. See [vblank-audio.md](vblank-audio.md) for the instruction evidence and confidence limits.
 
-The state-reset helpers and updater are annotated in [early_state_init.s](../disasm/early_state_init.s) and [scanline_update.s](../disasm/scanline_update.s). The VBlank callees and ROM pointer data installed at `0x03002FF0` still need analysis.
+The state-reset helpers, scanline updater, and VBlank support routines are annotated in [early_state_init.s](../disasm/early_state_init.s), [scanline_update.s](../disasm/scanline_update.s), and [vblank_helpers.s](../disasm/vblank_helpers.s). The ROM pointer data installed at `0x03002FF0` and the callers that configure these timing flags still need analysis.
