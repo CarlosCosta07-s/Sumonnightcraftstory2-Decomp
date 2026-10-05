@@ -810,6 +810,30 @@
     },
     {
       "start": "0x000692A8",
+      "end": "0x000692C0",
+      "kind": "code",
+      "mode": "thumb",
+      "label": "state_dispatch_080692A8",
+      "confidence": "high"
+    },
+    {
+      "start": "0x000692C0",
+      "end": "0x000692C4",
+      "kind": "pointer_data",
+      "mode": null,
+      "label": "state_dispatch_pointer_literal",
+      "confidence": "confirmed"
+    },
+    {
+      "start": "0x000692C4",
+      "end": "0x000692F8",
+      "kind": "code",
+      "mode": "thumb",
+      "label": "state_dispatch_080692A8",
+      "confidence": "high"
+    },
+    {
+      "start": "0x000692F8",
       "end": "0x000726C4",
       "kind": "unclassified",
       "mode": null,
