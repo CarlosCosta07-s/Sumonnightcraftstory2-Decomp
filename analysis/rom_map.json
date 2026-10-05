@@ -418,6 +418,38 @@
     },
     {
       "start": "0x00003DD8",
+      "end": "0x00007534",
+      "kind": "unclassified",
+      "mode": null,
+      "label": null,
+      "confidence": "unknown"
+    },
+    {
+      "start": "0x00007534",
+      "end": "0x0000753A",
+      "kind": "code",
+      "mode": "thumb",
+      "label": "set_vcount_mode",
+      "confidence": "high"
+    },
+    {
+      "start": "0x0000753A",
+      "end": "0x0000753C",
+      "kind": "padding",
+      "mode": null,
+      "label": null,
+      "confidence": "high"
+    },
+    {
+      "start": "0x0000753C",
+      "end": "0x00007540",
+      "kind": "pointer_data",
+      "mode": null,
+      "label": "vcount_mode_pointer",
+      "confidence": "confirmed"
+    },
+    {
+      "start": "0x00007540",
       "end": "0x00007730",
       "kind": "unclassified",
       "mode": null,
@@ -530,6 +562,14 @@
     },
     {
       "start": "0x000077F6",
+      "end": "0x000077F8",
+      "kind": "padding",
+      "mode": null,
+      "label": null,
+      "confidence": "high"
+    },
+    {
+      "start": "0x000077F8",
       "end": "0x000077FC",
       "kind": "pointer_data",
       "mode": null,
