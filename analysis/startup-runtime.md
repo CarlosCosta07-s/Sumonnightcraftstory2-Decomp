@@ -42,7 +42,7 @@ After those fills, the routine calls `0x08003960` to install interrupts (see [ir
 
 The loop at `0x08000418` calls `0x080001D0` before setting the startup-state word and entering the poll helper. The dispatcher runs a fixed sequence of subsystem calls and conditionally invokes three more routines when indexed value `8` is not `1`. Its full call order is documented in [main-update.md](main-update.md), with assembly and C in [main_update.s](../disasm/main_update.s) and [main_update.c](../src/main_update.c).
 
-The dispatcher uses indexed read/write helpers at `0x08026908` and `0x080268B4`. They select word, signed halfword, or signed byte storage according to index range; the base pointers are held at `0x030067D0`, `0x0300659C`, and `0x030065A4`. The helper implementation is in [indexed_variables.c](../src/indexed_variables.c).
+The dispatcher uses indexed read/write helpers at `0x08026908` and `0x080268B4`. They select word, signed halfword, or signed byte storage according to index range; the base pointers are held at `0x030067D0`, `0x0300659C`, and `0x030065A4`. The gated initializer at `0x0802660C` assigns those globals to `0x02000000`, `0x02000100`, and `0x02000380`, and also initializes three other pointer roots. The helper implementation is in [indexed_variables.c](../src/indexed_variables.c), with the initializer in [indexed_storage_init.c](../src/indexed_storage_init.c).
 
 ## Polling and scanline sample
 
