@@ -34,7 +34,9 @@ Routine `0x080002B8` writes `0x4014` to WAITCNT (`0x04000204`) and configures DM
 | `0x07000000` OAM | `0x000000A0` |
 | `0x05000000` palette RAM | `0x00000000` |
 
-The DMA source mode is fixed and destination mode increments; `0x8501` enables an immediate 32-bit transfer. The count field is programmed as zero, whose channel-specific maximum-length meaning should be checked against the target hardware/emulator before describing byte counts. The exact DMA setup is preserved in the annotated listing. The routine then calls `0x08003960` and `0x08003DA8`; those callees are not yet identified.
+The DMA source mode is fixed and destination mode increments; `0x8501` enables an immediate 32-bit transfer. The count field is programmed as zero; its effective transfer length depends on DMA3's hardware semantics, so no byte count is claimed here. The exact DMA setup is preserved in the annotated listing.
+
+After those fills, the routine calls `0x08003960` to install interrupts (see [irq-install.md](irq-install.md)), then `0x08003DA8`. The latter stores five constants into RAM at `0x03002FF0` through `0x03003000`; the purpose of that structure is not identified.
 
 ## Polling and scanline sample
 
