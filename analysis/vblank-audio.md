@@ -14,9 +14,9 @@ The VBlank handler at `0x08003A2C` calls `0x080077E4`, increments `0x03002ED4`, 
 
 Both routines sample `VCOUNT` (`0x04000006`), call `0x0808BB38`, sample VCOUNT again, and store an elapsed-line value at `0x0300303C`. If the second sample is lower than the first, the code adds `0xE3` before subtracting the first sample. The use of `0xE3` is confirmed; the intended wrap convention and the meaning of the stored delta are not yet established.
 
-The helpers at `0x08007730` and `0x0800773C` write and read the signed byte at `0x03003040`. A separate byte getter at `0x080077F0` reads `0x03003050`. Their callers and the meaning of the mode/flag fields remain unknown.
+`0x08007730` writes a byte to `0x03003040`; many callers use it to set a temporary value around other work and then clear it. `0x0800773C` sign-extends and returns that byte, though a direct call to this getter has not yet been located. The setter at `0x08007534` writes the mode byte at `0x03003052`; observed call sites pass `0` before `0x08003704` or pass `1` before `0x08006818`. A separate byte getter at `0x080077F0` reads `0x03003050`, and its caller remains unknown. The game-level meanings of these fields are still unresolved.
 
 ## Timing-mode configuration
 
-Trace writes to `0x03003040`, `0x03003050`, and `0x03003052` to identify who configures these branches. Continue mapping the sound engine around `0x0808AE94` and `0x0808B474`; keep the current names as analysis labels until callers or data structures confirm more specific roles.
+Continue following the remaining callers of the flag setters and identify what work the `0` and `1` mode paths represent. Map the sound engine around `0x0808AE94` and `0x0808B474`; keep current names as analysis labels until callers or data structures confirm more specific roles.
 
