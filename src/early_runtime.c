@@ -65,6 +65,7 @@ static void set_irq_handler(uint16_t index, irq_handler_t handler)
  */
 void install_irq_system(void)
 {
+    VBLANK_COUNT = 0;
     sub_08003C00();
     sub_080036A8();
 
