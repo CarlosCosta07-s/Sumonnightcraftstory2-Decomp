@@ -22,7 +22,9 @@ For bits `0x0001` through `0x1000`, the dispatcher checks the pending mask from 
 
 ## IRQ installation during startup
 
-The initializer at `0x08003960` fills table slots 0-12 at `0x03002D00` with a default Thumb no-op at `0x08003A28`. It copies the dispatcher and its literal pool (0x100 bytes) from ROM `0x080000FC` to IWRAM `0x03002EE0`, then changes the BIOS vector to that IWRAM copy. It also copies a second 0x100-byte ROM block from `0x08003C58` to `0x03002DB0`; the purpose of that block remains unknown.
+The initializer at `0x08003960` fills table slots 0-12 at `0x03002D00` with a default Thumb no-op at `0x08003A28`. It copies the dispatcher and its literal pool (0x100 bytes) from ROM `0x080000FC` to IWRAM `0x03002EE0`, then changes the BIOS vector to that IWRAM copy.
+
+It also copies a 0x100-byte ROM block from `0x08003C58` to `0x03002DB0`. The routine in the copied block reads VCOUNT, processes per-slot line/event tables, and writes values to graphics IO registers; its likely role is scanline/raster updates. See [scanline-update.md](scanline-update.md) and the equivalent C in [scanline_update.c](../src/scanline_update.c).
 
 Slot 0 (VBlank) is replaced with `0x08003A2D`, targeting the Thumb handler at `0x08003A2C`. The initializer then writes `IE=0x2001`, enables VBlank IRQ in DISPSTAT (`0x04000004 = 8`), and enables IME (`0x04000208 = 1`). Detailed instructions are in [irq-install.md](irq-install.md) and [irq_install.s](../disasm/irq_install.s).
 
@@ -34,4 +36,4 @@ At `0x0800040C`, the stub saves LR, calls `0x080002B8`, then loops through `0x08
 
 ## Confidence and next steps
 
-Addresses, modes, literal values, and register operations come directly from disassembly of the matching ROM. The IRQ table setup and interrupt enables are mapped. The copied blob at `0x08003C58`, VBlank callees, DMA helper callees, and the large update routine still need analysis.
+Addresses, modes, literal values, and register operations come directly from disassembly of the matching ROM. The IRQ table setup and scanline updater's per-line accesses are mapped. Remaining work includes identifying the scanline updater's caller, the VBlank callees, DMA helper callees, the ROM pointer targets at `0x03002FF0`, and the large update routine.
