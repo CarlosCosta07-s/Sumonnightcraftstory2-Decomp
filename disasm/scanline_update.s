@@ -9,7 +9,7 @@ scanline_update:
         ldrh    r3, [r0]
         movs    r1, #0xA0
         cmp     r3, r1
-        bmi     scanline_active         @ return when VCOUNT >= 160
+        bmi     scanline_active         @ continue while VCOUNT < 160
         bx      lr
 
 scanline_active:
