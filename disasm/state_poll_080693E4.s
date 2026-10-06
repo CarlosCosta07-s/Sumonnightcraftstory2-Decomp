@@ -53,13 +53,13 @@ state_poll_080693E4:
         cmp     r0, #0
         bne     .Lreturn_active
         movs    r0, #0
-        bl      0x0800CF78
+        bl      0x0800CF78               @ clear byte at 0x03003878 + index
         movs    r0, #1
-        bl      0x0800CF78
+        bl      0x0800CF78               @ clear byte at 0x03003878 + index
         movs    r0, #2
-        bl      0x0800CF78
+        bl      0x0800CF78               @ clear byte at 0x03003878 + index
         movs    r0, #3
-        bl      0x0800CF78
+        bl      0x0800CF78               @ clear byte at 0x03003878 + index
         movs    r5, #0
 .Lreturn_active:
         adds    r0, r5, #0
