@@ -12,7 +12,7 @@ extern int32_t sub_08069594(void);
 extern void sub_080695A4(void);
 extern void sub_08066540(void);
 extern void sub_080695E8(void);
-extern void sub_0800CF78(int32_t index);
+extern void clear_runtime_subflag_0800CF78(uint32_t index);
 
 int32_t state_poll_080693E4(void) {
     uintptr_t state_base = REG32(0x03006884u);
@@ -38,10 +38,10 @@ int32_t state_poll_080693E4(void) {
     }
 
     if (*state == 0) {
-        sub_0800CF78(0);
-        sub_0800CF78(1);
-        sub_0800CF78(2);
-        sub_0800CF78(3);
+        clear_runtime_subflag_0800CF78(0);
+        clear_runtime_subflag_0800CF78(1);
+        clear_runtime_subflag_0800CF78(2);
+        clear_runtime_subflag_0800CF78(3);
         return 0;
     }
 
