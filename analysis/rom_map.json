@@ -594,11 +594,51 @@
     },
     {
       "start": "0x000077FC",
-      "end": "0x0000CF78",
+      "end": "0x0000CF48",
       "kind": "unclassified",
       "mode": null,
       "label": null,
       "confidence": "unknown"
+    },
+    {
+      "start": "0x0000CF48",
+      "end": "0x0000CF5A",
+      "kind": "code",
+      "mode": "thumb",
+      "label": "write_runtime_table_byte",
+      "confidence": "high"
+    },
+    {
+      "start": "0x0000CF5A",
+      "end": "0x0000CF5C",
+      "kind": "padding",
+      "mode": null,
+      "label": null,
+      "confidence": "high"
+    },
+    {
+      "start": "0x0000CF5C",
+      "end": "0x0000CF60",
+      "kind": "literal_data",
+      "mode": null,
+      "label": "runtime_table_base_literal",
+      "confidence": "confirmed"
+    },
+    {
+      "start": "0x0000CF60",
+      "end": "0x0000CF74",
+      "kind": "code",
+      "mode": "thumb",
+      "label": "set_runtime_subflag",
+      "confidence": "high"
+    },
+    {
+      "start": "0x0000CF74",
+      "end": "0x0000CF78",
+      "kind": "literal_data",
+      "mode": null,
+      "label": "runtime_table_base_literal",
+      "confidence": "confirmed"
     },
     {
       "start": "0x0000CF78",
