@@ -433,7 +433,31 @@
       "confidence": "confirmed"
     },
     {
-      "start": "0x00003DD8",
+      "start": "0x00003dd8",
+      "end": "0x00005768",
+      "kind": "unclassified",
+      "mode": null,
+      "label": null,
+      "confidence": "unknown"
+    },
+    {
+      "start": "0x00005768",
+      "end": "0x000057D6",
+      "kind": "code",
+      "mode": "thumb",
+      "label": "fill_two_row_map_strip",
+      "confidence": "high"
+    },
+    {
+      "start": "0x000057D6",
+      "end": "0x000057D8",
+      "kind": "padding",
+      "mode": null,
+      "label": null,
+      "confidence": "high"
+    },
+    {
+      "start": "0x000057d8",
       "end": "0x00007534",
       "kind": "unclassified",
       "mode": null,
@@ -593,12 +617,76 @@
       "confidence": "confirmed"
     },
     {
-      "start": "0x000077FC",
-      "end": "0x0000CF48",
+      "start": "0x000077fc",
+      "end": "0x0000cef8",
       "kind": "unclassified",
       "mode": null,
       "label": null,
       "confidence": "unknown"
+    },
+    {
+      "start": "0x0000CEF8",
+      "end": "0x0000CF12",
+      "kind": "code",
+      "mode": "thumb",
+      "label": "write_runtime_config_pair_a",
+      "confidence": "high"
+    },
+    {
+      "start": "0x0000CF12",
+      "end": "0x0000CF14",
+      "kind": "padding",
+      "mode": null,
+      "label": null,
+      "confidence": "high"
+    },
+    {
+      "start": "0x0000CF14",
+      "end": "0x0000CF18",
+      "kind": "pointer_data",
+      "mode": null,
+      "label": "runtime_config_pair_a_literal",
+      "confidence": "confirmed"
+    },
+    {
+      "start": "0x0000CF18",
+      "end": "0x0000CF32",
+      "kind": "code",
+      "mode": "thumb",
+      "label": "write_runtime_config_pair_b",
+      "confidence": "high"
+    },
+    {
+      "start": "0x0000CF32",
+      "end": "0x0000CF34",
+      "kind": "padding",
+      "mode": null,
+      "label": null,
+      "confidence": "high"
+    },
+    {
+      "start": "0x0000CF34",
+      "end": "0x0000CF38",
+      "kind": "pointer_data",
+      "mode": null,
+      "label": "runtime_table_base_literal",
+      "confidence": "confirmed"
+    },
+    {
+      "start": "0x0000CF38",
+      "end": "0x0000CF44",
+      "kind": "code",
+      "mode": "thumb",
+      "label": "write_runtime_config_byte",
+      "confidence": "high"
+    },
+    {
+      "start": "0x0000CF44",
+      "end": "0x0000CF48",
+      "kind": "pointer_data",
+      "mode": null,
+      "label": "runtime_table_base_literal",
+      "confidence": "confirmed"
     },
     {
       "start": "0x0000CF48",
@@ -714,7 +802,311 @@
     },
     {
       "start": "0x0000CFF8",
-      "end": "0x0002660C",
+      "end": "0x0000D008",
+      "kind": "code",
+      "mode": "thumb",
+      "label": "read_runtime_table_entry",
+      "confidence": "high"
+    },
+    {
+      "start": "0x0000D008",
+      "end": "0x0000D00C",
+      "kind": "pointer_data",
+      "mode": null,
+      "label": "runtime_table_base_literal",
+      "confidence": "confirmed"
+    },
+    {
+      "start": "0x0000D00C",
+      "end": "0x0000D0A6",
+      "kind": "code",
+      "mode": "thumb",
+      "label": "copy_terminated_runtime_halfwords",
+      "confidence": "high"
+    },
+    {
+      "start": "0x0000D0A6",
+      "end": "0x0000D0A8",
+      "kind": "padding",
+      "mode": null,
+      "label": null,
+      "confidence": "high"
+    },
+    {
+      "start": "0x0000D0A8",
+      "end": "0x0000D0AC",
+      "kind": "pointer_data",
+      "mode": null,
+      "label": "runtime_halfword_rows_literal",
+      "confidence": "confirmed"
+    },
+    {
+      "start": "0x0000D0AC",
+      "end": "0x0000D0C4",
+      "kind": "code",
+      "mode": "thumb",
+      "label": "get_map_object_status",
+      "confidence": "high"
+    },
+    {
+      "start": "0x0000D0C4",
+      "end": "0x0000D0C8",
+      "kind": "pointer_data",
+      "mode": null,
+      "label": "map_object_records_literal",
+      "confidence": "confirmed"
+    },
+    {
+      "start": "0x0000D0C8",
+      "end": "0x0000D0CE",
+      "kind": "code",
+      "mode": "thumb",
+      "label": "get_map_object_status_return",
+      "confidence": "high"
+    },
+    {
+      "start": "0x0000D0CE",
+      "end": "0x0000D0D0",
+      "kind": "padding",
+      "mode": null,
+      "label": null,
+      "confidence": "high"
+    },
+    {
+      "start": "0x0000D0D0",
+      "end": "0x0000D0DE",
+      "kind": "code",
+      "mode": "thumb",
+      "label": "get_map_object_x",
+      "confidence": "high"
+    },
+    {
+      "start": "0x0000D0DE",
+      "end": "0x0000D0E0",
+      "kind": "padding",
+      "mode": null,
+      "label": null,
+      "confidence": "high"
+    },
+    {
+      "start": "0x0000D0E0",
+      "end": "0x0000D0E4",
+      "kind": "pointer_data",
+      "mode": null,
+      "label": "map_object_records_literal",
+      "confidence": "confirmed"
+    },
+    {
+      "start": "0x0000D0E4",
+      "end": "0x0000D0F2",
+      "kind": "code",
+      "mode": "thumb",
+      "label": "get_map_object_y",
+      "confidence": "high"
+    },
+    {
+      "start": "0x0000D0F2",
+      "end": "0x0000D0F4",
+      "kind": "padding",
+      "mode": null,
+      "label": null,
+      "confidence": "high"
+    },
+    {
+      "start": "0x0000D0F4",
+      "end": "0x0000D0F8",
+      "kind": "pointer_data",
+      "mode": null,
+      "label": "map_object_records_literal",
+      "confidence": "confirmed"
+    },
+    {
+      "start": "0x0000D0F8",
+      "end": "0x0000D10A",
+      "kind": "code",
+      "mode": "thumb",
+      "label": "set_map_object_xy",
+      "confidence": "high"
+    },
+    {
+      "start": "0x0000D10A",
+      "end": "0x0000D10C",
+      "kind": "padding",
+      "mode": null,
+      "label": null,
+      "confidence": "high"
+    },
+    {
+      "start": "0x0000D10C",
+      "end": "0x0000D110",
+      "kind": "pointer_data",
+      "mode": null,
+      "label": "map_object_records_literal",
+      "confidence": "confirmed"
+    },
+    {
+      "start": "0x0000D110",
+      "end": "0x0000D116",
+      "kind": "code",
+      "mode": "thumb",
+      "label": "set_runtime_flag_03003A70",
+      "confidence": "high"
+    },
+    {
+      "start": "0x0000D116",
+      "end": "0x0000D118",
+      "kind": "padding",
+      "mode": null,
+      "label": null,
+      "confidence": "high"
+    },
+    {
+      "start": "0x0000D118",
+      "end": "0x0000D11C",
+      "kind": "pointer_data",
+      "mode": null,
+      "label": "runtime_flag_address_literal",
+      "confidence": "confirmed"
+    },
+    {
+      "start": "0x0000D11C",
+      "end": "0x0000D138",
+      "kind": "code",
+      "mode": "thumb",
+      "label": "promote_map_object_state_2_to_3",
+      "confidence": "high"
+    },
+    {
+      "start": "0x0000D138",
+      "end": "0x0000D13C",
+      "kind": "pointer_data",
+      "mode": null,
+      "label": "map_object_records_literal",
+      "confidence": "confirmed"
+    },
+    {
+      "start": "0x0000D13C",
+      "end": "0x0000D158",
+      "kind": "code",
+      "mode": "thumb",
+      "label": "demote_map_object_state_3_to_2",
+      "confidence": "high"
+    },
+    {
+      "start": "0x0000D158",
+      "end": "0x0000D15C",
+      "kind": "pointer_data",
+      "mode": null,
+      "label": "map_object_records_literal",
+      "confidence": "confirmed"
+    },
+    {
+      "start": "0x0000D15C",
+      "end": "0x0000D16C",
+      "kind": "code",
+      "mode": "thumb",
+      "label": "set_map_object_field_0D",
+      "confidence": "high"
+    },
+    {
+      "start": "0x0000D16C",
+      "end": "0x0000D170",
+      "kind": "pointer_data",
+      "mode": null,
+      "label": "map_object_records_literal",
+      "confidence": "confirmed"
+    },
+    {
+      "start": "0x0000D170",
+      "end": "0x0000D1B0",
+      "kind": "code",
+      "mode": "thumb",
+      "label": "draw_map_object_strip",
+      "confidence": "high"
+    },
+    {
+      "start": "0x0000D1B0",
+      "end": "0x0000D1B4",
+      "kind": "pointer_data",
+      "mode": null,
+      "label": "map_object_records_literal",
+      "confidence": "confirmed"
+    },
+    {
+      "start": "0x0000D1B4",
+      "end": "0x0000D1B8",
+      "kind": "literal_data",
+      "mode": null,
+      "label": "map_entry_attribute_offset_literal",
+      "confidence": "confirmed"
+    },
+    {
+      "start": "0x0000D1B8",
+      "end": "0x0000D22A",
+      "kind": "code",
+      "mode": "thumb",
+      "label": "clear_map_object_strip",
+      "confidence": "high"
+    },
+    {
+      "start": "0x0000D22A",
+      "end": "0x0000D22C",
+      "kind": "padding",
+      "mode": null,
+      "label": null,
+      "confidence": "high"
+    },
+    {
+      "start": "0x0000D22C",
+      "end": "0x0000D230",
+      "kind": "pointer_data",
+      "mode": null,
+      "label": "map_object_link_base_literal",
+      "confidence": "confirmed"
+    },
+    {
+      "start": "0x0000D230",
+      "end": "0x0000D234",
+      "kind": "literal_data",
+      "mode": null,
+      "label": "map_object_base_delta_literal",
+      "confidence": "confirmed"
+    },
+    {
+      "start": "0x0000D234",
+      "end": "0x0000D238",
+      "kind": "literal_data",
+      "mode": null,
+      "label": "map_object_link_sentinel_literal",
+      "confidence": "confirmed"
+    },
+    {
+      "start": "0x0000D238",
+      "end": "0x0000D23E",
+      "kind": "code",
+      "mode": "thumb",
+      "label": "read_runtime_byte_03003A02",
+      "confidence": "high"
+    },
+    {
+      "start": "0x0000D23E",
+      "end": "0x0000D240",
+      "kind": "padding",
+      "mode": null,
+      "label": null,
+      "confidence": "high"
+    },
+    {
+      "start": "0x0000D240",
+      "end": "0x0000D244",
+      "kind": "pointer_data",
+      "mode": null,
+      "label": "runtime_state_base_literal",
+      "confidence": "confirmed"
+    },
+    {
+      "start": "0x0000d244",
+      "end": "0x0002660c",
       "kind": "unclassified",
       "mode": null,
       "label": null,
