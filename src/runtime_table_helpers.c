@@ -14,6 +14,17 @@
 #define RUNTIME_ENTRY_BYTE_OFFSET 0x3B4u
 #define RUNTIME_ENTRY_WORD_OFFSET 0x3BCu
 #define RUNTIME_SUBFLAG_OFFSET 0x3B8u
+#define RUNTIME_OTHER_BYTE_OFFSET 0x3CCu
+
+void write_runtime_table_byte_0800CF48(uint32_t index, uint32_t value) {
+    uint32_t narrowed_index = (uint16_t)index;
+    REG8(RUNTIME_TABLE_ADDRESS + RUNTIME_OTHER_BYTE_OFFSET + narrowed_index) = (uint8_t)value;
+}
+
+void set_runtime_subflag_0800CF60(uint32_t index) {
+    uint32_t narrowed_index = (uint16_t)index;
+    REG8(RUNTIME_TABLE_ADDRESS + RUNTIME_SUBFLAG_OFFSET + narrowed_index) = 1;
+}
 
 void clear_runtime_subflag_0800CF78(uint32_t index) {
     uint32_t narrowed_index = (uint16_t)index;
