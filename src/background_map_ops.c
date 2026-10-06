@@ -15,7 +15,7 @@
 #define MAP_OBJECT_RECORDS 0x030034C0u
 #define MAP_BUFFER_POINTERS 0x0300387Cu
 #define MAP_OBJECT_LINKS 0x030036F0u
-#define MAP_HALFWORD_ROWS 0x030038C0u
+#define RUNTIME_HALFWORD_ROWS 0x030038C0u
 #define MAP_OBJECT_RECORD_SIZE 0x1Cu
 
 static volatile uint8_t *map_object_record(uint8_t object_index) {
@@ -48,13 +48,13 @@ void fill_two_row_map_strip_08005768(
  * ROM 0x0800D00C selects a 17-halfword row from the selector's 0x22-byte
  * record, clears it, then copies source values through the first zero.
  */
-void copy_terminated_map_halfwords_0800D00C(
+void copy_terminated_runtime_halfwords_0800D00C(
     uint32_t packed_selector,
     const volatile uint16_t *source
 ) {
     uint32_t selector = ((uint16_t)packed_selector >> 8) & 0x0Fu;
     volatile uint16_t *destination =
-        (volatile uint16_t *)(uintptr_t)(MAP_HALFWORD_ROWS + selector * 0x22u);
+        (volatile uint16_t *)(uintptr_t)(RUNTIME_HALFWORD_ROWS + selector * 0x22u);
 
     for (uint32_t i = 0; i < 17; ++i) {
         destination[i] = 0;
@@ -178,6 +178,6 @@ void clear_map_object_strip_0800D1B8(
     }
 }
 
-uint8_t read_runtime_map_mode_0800D238(void) {
+uint8_t read_runtime_byte_03003A02_0800D238(void) {
     return REG8(0x03003A02u);
 }
