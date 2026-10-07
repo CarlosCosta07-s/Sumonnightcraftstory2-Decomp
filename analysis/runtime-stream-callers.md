@@ -62,3 +62,16 @@ The direct callers of the small setter wrappers add constraints to the source qu
 - Two additional routines, `0x08073AE0` and `0x08073B10`, call `0x08025F4C`, store its low-byte return at block offsets `+0` and `+0x54`, and write it to indexed values `64` and `65` respectively. No halfword-aligned Thumb `BL` callers to those two routines were found, so their activation path remains unidentified.
 
 Thus these indexed values are not only table indices: at least some code paths write a context byte or a byte returned from a halfword-stream processor into them. The ROM-table selection code still performs no local range check. Whether the values are constrained to the ten nonzero pointer entries is unknown.
+
+
+## Event-command dispatch for values 64 and 65
+
+The indirect path is resolved through the ROM handler table:
+
+- Dispatcher `0x08026B14` reads the command byte at `*(u32 *)0x03006594 + 2`, multiplies it by four, and loads a handler pointer from the table at `0x084CABAC`.
+- It calls `0x0808D334`, which is a one-instruction `bx r0` tail-call trampoline.
+- Table entry 94 at `0x084CAD24` contains Thumb pointer `0x08073AE1`; entry 95 at `0x084CAD28` contains `0x08073B11`.
+- Handler `0x08073AE0` runs `0x08025F4C`, then stores its low-byte result at block offset `+0` and indexed value `64`.
+- Handler `0x08073B10` does the same at block offset `+0x54` and indexed value `65`.
+
+This proves that the event-command dispatch table can refresh both selector indices using the result of `0x08025F4C`. The parser's output domain, the meaning of command IDs 94/95, and the constraints on values later used as pointer-table indices remain unresolved.
