@@ -1434,6 +1434,182 @@
     },
     {
       "start": "0x00013A80",
+      "end": "0x00025F4C",
+      "kind": "unclassified",
+      "mode": null,
+      "label": null,
+      "confidence": "unknown"
+    },
+    {
+      "start": "0x00025F4C",
+      "end": "0x00025F7C",
+      "kind": "code",
+      "mode": "thumb",
+      "label": "evaluate_event_expression_08025F4C",
+      "confidence": "high"
+    },
+    {
+      "start": "0x00025F7C",
+      "end": "0x00025F88",
+      "kind": "literal_data",
+      "mode": null,
+      "label": "event_expression_literals_a",
+      "confidence": "high"
+    },
+    {
+      "start": "0x00025F88",
+      "end": "0x00025FCC",
+      "kind": "code",
+      "mode": "thumb",
+      "label": "evaluate_event_expression_08025F4C",
+      "confidence": "high"
+    },
+    {
+      "start": "0x00025FCC",
+      "end": "0x00025FD0",
+      "kind": "literal_data",
+      "mode": null,
+      "label": "event_expression_literal_indexed_word_base",
+      "confidence": "high"
+    },
+    {
+      "start": "0x00025FD0",
+      "end": "0x00025FE8",
+      "kind": "code",
+      "mode": "thumb",
+      "label": "evaluate_event_expression_08025F4C",
+      "confidence": "high"
+    },
+    {
+      "start": "0x00025FE8",
+      "end": "0x00025FF0",
+      "kind": "literal_data",
+      "mode": null,
+      "label": "event_expression_halfword_threshold_and_base",
+      "confidence": "high"
+    },
+    {
+      "start": "0x00025FF0",
+      "end": "0x00026004",
+      "kind": "code",
+      "mode": "thumb",
+      "label": "evaluate_event_expression_08025F4C",
+      "confidence": "high"
+    },
+    {
+      "start": "0x00026004",
+      "end": "0x0002600C",
+      "kind": "literal_data",
+      "mode": null,
+      "label": "event_expression_byte_base_and_offset",
+      "confidence": "high"
+    },
+    {
+      "start": "0x0002600C",
+      "end": "0x00026034",
+      "kind": "code",
+      "mode": "thumb",
+      "label": "evaluate_event_expression_08025F4C",
+      "confidence": "high"
+    },
+    {
+      "start": "0x00026034",
+      "end": "0x00026038",
+      "kind": "literal_data",
+      "mode": null,
+      "label": "event_expression_typed_halfword_base",
+      "confidence": "high"
+    },
+    {
+      "start": "0x00026038",
+      "end": "0x00026058",
+      "kind": "code",
+      "mode": "thumb",
+      "label": "evaluate_event_expression_08025F4C",
+      "confidence": "high"
+    },
+    {
+      "start": "0x00026058",
+      "end": "0x0002605C",
+      "kind": "literal_data",
+      "mode": null,
+      "label": "event_expression_typed_byte_base",
+      "confidence": "high"
+    },
+    {
+      "start": "0x0002605C",
+      "end": "0x00026088",
+      "kind": "code",
+      "mode": "thumb",
+      "label": "evaluate_event_expression_08025F4C",
+      "confidence": "high"
+    },
+    {
+      "start": "0x00026088",
+      "end": "0x00026090",
+      "kind": "literal_data",
+      "mode": null,
+      "label": "event_expression_bit_base_and_index_bias",
+      "confidence": "high"
+    },
+    {
+      "start": "0x00026090",
+      "end": "0x000260E0",
+      "kind": "code",
+      "mode": "thumb",
+      "label": "evaluate_event_expression_08025F4C",
+      "confidence": "high"
+    },
+    {
+      "start": "0x000260E0",
+      "end": "0x00026124",
+      "kind": "pointer_data",
+      "mode": null,
+      "label": "event_expression_operator_jump_table",
+      "confidence": "high"
+    },
+    {
+      "start": "0x00026124",
+      "end": "0x000261B6",
+      "kind": "code",
+      "mode": "thumb",
+      "label": "evaluate_event_expression_08025F4C",
+      "confidence": "high"
+    },
+    {
+      "start": "0x000261B6",
+      "end": "0x000261B8",
+      "kind": "padding",
+      "mode": null,
+      "label": null,
+      "confidence": "high"
+    },
+    {
+      "start": "0x000261B8",
+      "end": "0x000261DC",
+      "kind": "code",
+      "mode": "thumb",
+      "label": "set_event_context_mode_from_tag_080261B8",
+      "confidence": "high"
+    },
+    {
+      "start": "0x000261DC",
+      "end": "0x000261E0",
+      "kind": "literal_data",
+      "mode": null,
+      "label": "event_context_root_literal",
+      "confidence": "high"
+    },
+    {
+      "start": "0x000261E0",
+      "end": "0x00026214",
+      "kind": "code",
+      "mode": "thumb",
+      "label": "set_event_context_mode_from_tag_080261B8",
+      "confidence": "high"
+    },
+    {
+      "start": "0x00026214",
       "end": "0x0002660C",
       "kind": "unclassified",
       "mode": null,
@@ -1858,6 +2034,78 @@
     },
     {
       "start": "0x00073B40",
+      "end": "0x0008D370",
+      "kind": "unclassified",
+      "mode": null,
+      "label": null,
+      "confidence": "unknown"
+    },
+    {
+      "start": "0x0008D370",
+      "end": "0x0008D3F8",
+      "kind": "code",
+      "mode": "thumb",
+      "label": "signed_divide_0808D370",
+      "confidence": "high"
+    },
+    {
+      "start": "0x0008D3F8",
+      "end": "0x0008D402",
+      "kind": "code",
+      "mode": "thumb",
+      "label": "signed_divide_zero_divisor_path",
+      "confidence": "high"
+    },
+    {
+      "start": "0x0008D402",
+      "end": "0x0008D404",
+      "kind": "padding",
+      "mode": null,
+      "label": null,
+      "confidence": "high"
+    },
+    {
+      "start": "0x0008D404",
+      "end": "0x0008D406",
+      "kind": "code",
+      "mode": "thumb",
+      "label": "return_through_link_register",
+      "confidence": "high"
+    },
+    {
+      "start": "0x0008D406",
+      "end": "0x0008D408",
+      "kind": "padding",
+      "mode": null,
+      "label": null,
+      "confidence": "high"
+    },
+    {
+      "start": "0x0008D408",
+      "end": "0x0008D4CC",
+      "kind": "code",
+      "mode": "thumb",
+      "label": "signed_remainder_0808D408",
+      "confidence": "high"
+    },
+    {
+      "start": "0x0008D4CC",
+      "end": "0x0008D4D6",
+      "kind": "code",
+      "mode": "thumb",
+      "label": "signed_remainder_zero_divisor_path",
+      "confidence": "high"
+    },
+    {
+      "start": "0x0008D4D6",
+      "end": "0x0008D4D8",
+      "kind": "padding",
+      "mode": null,
+      "label": null,
+      "confidence": "high"
+    },
+    {
+      "start": "0x0008D4D8",
       "end": "0x004C7880",
       "kind": "unclassified",
       "mode": null,
