@@ -1,6 +1,6 @@
 # Background-map object and buffer helpers
 
-This note records the evidence around the runtime table at `0x030034C0`. The source-like reconstructions and annotated listings are in [background_map_ops.c](../src/background_map_ops.c), [background_map_ops.s](../disasm/background_map_ops.s), and [runtime_table_helpers.c](../src/runtime_table_helpers.c).
+This note records the evidence around the runtime table at `0x030034C0`. The higher-level constructor, staging path, and transfer-request queue are analyzed in [runtime-object-pipeline.md](runtime-object-pipeline.md). The source-like reconstructions and annotated listings are in [background_map_ops.c](../src/background_map_ops.c), [background_map_ops.s](../disasm/background_map_ops.s), and [runtime_table_helpers.c](../src/runtime_table_helpers.c).
 
 ## What the ROM directly establishes
 
@@ -41,5 +41,5 @@ The three first pointer values are spaced by exactly `0x800` bytes, and the call
 - The exact meaning of the active byte (`+0x3B4`) and subflag (`+0x3B8`) arrays.
 - The meaning of the per-index byte tags and fixed fields at `+0x3D0`, `+0x3D2`, and `+0x3D4`.
 - The full 0x1C-byte object-record format, especially fields `+0x0B` and `+0x0D`.
-- Which routine consumes the two config pairs and performs the final hardware transfer.
+- Which routine drains the confirmed 12-byte transfer-request entries and when it runs.
 - The selector-row records at `0x030038C0` and their callers.
