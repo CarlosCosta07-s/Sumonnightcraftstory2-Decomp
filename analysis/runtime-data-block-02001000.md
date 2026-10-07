@@ -1,6 +1,6 @@
 # Runtime data block rooted at `0x03006894`
 
-This note describes only fields and data movement that can be read directly from the USA revision 0 ROM. It does not assign game-level names to the block.
+This note describes only fields and data movement that can be read directly from the USA revision 0 ROM. It does not assign game-level names to the block. The two stream-copy routines have a source-like reconstruction in [runtime_stream_copy.c](../src/runtime_stream_copy.c).
 
 ## Root and copied streams
 
