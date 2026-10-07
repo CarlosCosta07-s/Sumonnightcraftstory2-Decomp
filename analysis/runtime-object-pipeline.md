@@ -35,14 +35,14 @@ These behaviors are established from the instruction flow. The meanings of marke
 - `0x08013A20` stores source, destination, and a zero-extended 16-bit size in each 12-byte entry at `0x03006170 + count*12`. It accepts indices 0–79; if the count is already above 79, it returns without adding a request.
 - `0x08013A54` resets the halfword count at `0x03006160`.
 - `0x08013A60` clears 240 words at `0x03006170`, which is the 960-byte space for 80 queue entries.
+- `0x080139C4` drains the queue from index `count-1` down to zero. For each entry it writes source, destination, and `(byte_count >> 2) | 0x84000000` to DMA3 registers at `0x040000D4`, then waits until DMA3 bit 31 clears. It does not reset the count.
+- The direct caller of `0x080139C4` is `0x08000358`. That routine is called at `0x080003D0` inside the polling loop at `0x080003C4`, which repeats while the word at `0x030028E8` is nonzero. The queue drain is the first operation in `0x08000358`; later in that routine, `0x080139B8` resets the queue count. The frame dispatcher also calls the separate reset wrapper `0x080139AC`. The VBlank handler at `0x08003A2C` does not directly call this drain path.
 
 ### What remains unknown
 
-The queue producer, capacity, reset, clear operation, and entry shape are now reconstructed. A ROM-wide scan found direct literal references to the queue count/data only in the enqueue/reset/clear routines; it has not yet exposed the drain/consumer. That consumer may use an indirect pointer or another dispatch path, so the search is not proof that no consumer exists.
+The queue's producer, capacity, entry format, DMA3 drain, and direct call context are now established. The remaining questions are:
 
-The next unresolved points are:
-
-1. Find the transfer-queue consumer and determine when it runs (for example, whether it is called from the frame/interrupt path).
-2. Resolve the roles of `0xC083` and `0x7087` by tracing their source tables and the three helper transforms.
-3. Identify the exact meaning and units of the node field at `+2`, and how it relates to configured VRAM range size `0x03003864`.
-4. Confirm the caller invariant that prevents object index 20 from being used.
+1. Resolve the roles of `0xC083` and `0x7087` by tracing their source tables and the helper transforms at `0x080053AC`, `0x080061A4`, `0x080057D8`, `0x08005954`, and `0x08005960`.
+2. Identify the exact meaning and units of the node field at `+2`, and how it relates to configured VRAM range size `0x03003864`.
+3. Confirm the caller invariant that prevents object index 20 from being used.
+4. Explain why the queue drains in reverse order and how the polling-loop state at `0x030028E8` is entered/exited.
