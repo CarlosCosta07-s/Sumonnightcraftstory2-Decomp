@@ -76,11 +76,11 @@ static int32_t apply_expression_operator(uint16_t opcode,
                                          int32_t right)
 {
     switch (opcode) {
-    case 0x82: return left * right;
+    case 0x82: return (int32_t)((uint32_t)left * (uint32_t)right);
     case 0x83: return signed_divide_0808D370(left, right);
     case 0x84: return signed_remainder_0808D408(left, right);
-    case 0x85: return left + right;
-    case 0x86: return left - right;
+    case 0x85: return (int32_t)((uint32_t)left + (uint32_t)right);
+    case 0x86: return (int32_t)((uint32_t)left - (uint32_t)right);
     case 0x87: return left < right;
     case 0x88: return left <= right;
     case 0x89: return left > right;
