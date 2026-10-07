@@ -1,0 +1,59 @@
+@ Request queue used by the runtime transfer/object path.
+@ Addresses in .org are ROM offsets; GBA addresses are shown in comments.
+        .thumb
+
+        .org 0x13A20
+enqueue_transfer_request_08013A20:
+        push    {r4, r5, r6, lr}
+        adds    r4, r0, #0              @ source
+        adds    r5, r1, #0              @ destination
+        adds    r6, r2, #0              @ length (caller value)
+        ldr     r3, [pc, #0x20]         @ 0x03006160: halfword count
+        ldrh    r0, [r3]
+        lsls    r1, r0, #1
+        adds    r1, r1, r0
+        lsls    r1, r1, #2              @ index * 12 bytes
+        ldr     r2, [pc, #0x1C]         @ 0x03006170: records
+        adds    r1, r1, r2
+        cmp     r0, #79
+        bhi     0x08013A46              @ silently discard if count > 79
+        str     r4, [r1]
+        str     r5, [r1, #4]
+        str     r6, [r1, #8]
+        ldrh    r0, [r3]
+        adds    r0, #1
+        strh    r0, [r3]
+        pop     {r4, r5, r6}
+        pop     {r0}
+        bx      r0
+        .org 0x13A4A
+        .hword  0x0000                  @ alignment
+        .org 0x13A4C
+        .word   0x03006160
+        .word   0x03006170
+
+        .org 0x13A54
+reset_transfer_request_count_08013A54:
+        ldr     r1, [pc, #4]            @ 0x03006160
+        movs    r0, #0
+        strh    r0, [r1]
+        bx      lr
+        .org 0x13A5C
+        .word   0x03006160
+
+        .org 0x13A60
+clear_transfer_request_queue_08013A60:
+        push    {lr}
+        sub     sp, #4
+        movs    r0, #0
+        str     r0, [sp]                @ zero fill source
+        ldr     r1, [pc, #0x0C]         @ 0x03006170
+        ldr     r2, [pc, #0x10]         @ 0x050000F0
+        mov     r0, sp
+        bl      0x0808CF70              @ BIOS CpuSet wrapper (SWI 0x0B)
+        add     sp, #4
+        pop     {r0}
+        bx      r0
+        .org 0x13A78
+        .word   0x03006170
+        .word   0x050000F0              @ fill + 32-bit + 240 words = 0x3C0 bytes
