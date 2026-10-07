@@ -36,5 +36,5 @@ The state poller at `0x080693E4` uses the same pointer global `0x03006884` and s
 
 ## Confidence and next work
 
-The call order, branch conditions, literal values, and index thresholds come directly from the matching ROM. The names in the C source are descriptive. The runtime-object path now has a separate reconstruction in [runtime-object-pipeline.md](runtime-object-pipeline.md): `0x080139C4` drains 12-byte requests through DMA3, called from the polling loop via `0x08000358`. Remaining work includes identifying the meanings of per-entry active bytes and subflags, resolving the selector rows at `0x030038C0`, and tracing where indexed values 4 and 8 are written.
+The call order, branch conditions, literal values, and index thresholds come directly from the matching ROM. The names in the C source are descriptive. The runtime-object path now has a separate reconstruction in [runtime-object-pipeline.md](runtime-object-pipeline.md): `0x080139C4` drains 12-byte requests through DMA3, called from the polling loop via `0x08000358`. Remaining work includes identifying the meanings of per-entry active bytes and subflags, explaining the contents of selector rows at `0x030038C0` (rows 0, 1, 5, 6, and 7 are now observed in one setup path), and tracing where indexed values 4 and 8 are written.
 
