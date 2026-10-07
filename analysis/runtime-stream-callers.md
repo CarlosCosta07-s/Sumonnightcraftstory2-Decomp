@@ -36,7 +36,7 @@ The first ten words at `0x084C7B48` are pointers:
 | 8 | `0x0808F438` |
 | 9 | `0x0808F42C` |
 
-Entries 10 and 11 are zero. The first selected targets contain zero-terminated halfword sequences; for example, `0x0808F420` begins `0x8264, 0x8284, 0x8287, 0x8281, 0x8292, 0`, while `0x0808F414` begins `0x8260, 0x8285, 0x8292, 0x8281, 0`. The codes are not yet decoded or assigned a semantic domain.
+Entries 10 and 11 are zero. The first selected targets contain zero-terminated halfword sequences; for example, `0x0808F420` begins `0x8264, 0x8284, 0x8287, 0x8281, 0x8292, 0`, while `0x0808F414` begins `0x8260, 0x8285, 0x8292, 0x8281, 0`. The codes are not yet decoded or assigned a semantic domain. The observed selection code does not clamp values 64 or 65 before pointer arithmetic; whether the stored values are constrained upstream is unknown.
 
 ## Context-provided streams
 
@@ -50,4 +50,4 @@ The caller at `0x08060456` invokes `0x08070650` when the halfword at offset `+0x
 
 A second caller at `0x080707CC` loads a pointer from `0x084FCA34`, whose value is `0x08092638`, then passes it to `0x0807292C`. The sequence at `0x08092608` starts `0x8264, 0x8284, 0x8287, 0x8281, 0x8292, 0`; the sequence at `0x08092638` starts `0x8264, 0x8277, 0x8285, 0x826B, 0x8263, 0`.
 
-The values `64`, `65`, `240`, and the state halfword compared with `20` have only been identified as indexed values or fields. Their game-level meanings are not established. Likewise, the halfword codes have not been proven to be text, glyph IDs, or another resource format.
+The values `64`, `65`, `240`, and the state halfword compared with `20` have only been identified as indexed values or fields. Their game-level meanings are not established. The pointer-selection path has no local range check for values 64 or 65; table validity therefore depends on upstream constraints that have not yet been traced. Likewise, the halfword codes have not been proven to be text, glyph IDs, or another resource format.
