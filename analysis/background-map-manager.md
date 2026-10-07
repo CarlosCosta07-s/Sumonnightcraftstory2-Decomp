@@ -32,7 +32,7 @@ Other accesses confirm additional record fields: `0x0800D0AC` returns the record
 
 Initialization at `0x08074088` writes `0x06001C00` and `0x4C00` into the first config pair, then `0x0200E000` and `0x1800` into the second. It assigns tags 13, 14, and 15 to indices 0-2 and stores pointers `0x0200F800`, `0x02010000`, and `0x02010800` in the corresponding pointer-table entries. The next setup at `0x080742C0` repeats those values. Another caller at `0x0805CD8A` writes `0x06002800`/`0x2800` and `0x02018000`/`0x1800`, then associates tag 4 with pointer `0x0200E800`.
 
-The three first pointer values are spaced by exactly `0x800` bytes, and the called writer addresses the buffers as 32-halfword rows. Together with the tag values 13-15 and destinations in the `0x06000000` region, this strongly suggests background screen-map buffers and a graphics-transfer/configuration system. That hardware-level interpretation is an inference; the exact consumer of every config field and the final transfer path still need to be traced.
+The three first pointer values are spaced by exactly `0x800` bytes, and the called writer addresses the buffers as 32-halfword rows. Together with tag values 13-15 and destinations in the `0x06000000` region, this strongly suggests background screen-map buffers and a graphics-transfer/configuration system. That hardware-level interpretation remains an inference. The queued DMA3 drain is identified at `0x080139C4`; the meaning of each configuration field and its exact relationship to that queue are still open.
 
 `0x0800D00C` is a separate bounded-list operation: it clears 17 halfwords in one of 16 selector records at `0x030038C0`, then copies source halfwords up to the first zero (or the 17-entry limit). Its callers and purpose remain unidentified.
 
@@ -41,5 +41,5 @@ The three first pointer values are spaced by exactly `0x800` bytes, and the call
 - The exact meaning of the active byte (`+0x3B4`) and subflag (`+0x3B8`) arrays.
 - The meaning of the per-index byte tags and fixed fields at `+0x3D0`, `+0x3D2`, and `+0x3D4`.
 - The full 0x1C-byte object-record format, especially fields `+0x0B` and `+0x0D`.
-- Which routine drains the confirmed 12-byte transfer-request entries and when it runs.
+- Why the DMA3 drain processes requests in reverse order, and how its polling-loop gate at `0x030028E8` is entered and exited.
 - The selector-row records at `0x030038C0` and their callers.
