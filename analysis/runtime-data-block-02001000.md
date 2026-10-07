@@ -1,6 +1,6 @@
 # Runtime data block rooted at `0x03006894`
 
-This note describes only fields and data movement that can be read directly from the USA revision 0 ROM. It does not assign game-level names to the block. The two stream-copy routines have a source-like reconstruction in [runtime_stream_copy.c](../src/runtime_stream_copy.c).
+This note describes only fields and data movement that can be read directly from the USA revision 0 ROM. It does not assign game-level names to the block. The two stream-copy routines have a source-like reconstruction in [runtime_stream_copy.c](../src/runtime_stream_copy.c). Their direct callers and confirmed ROM sources are mapped in [runtime-stream-callers.md](runtime-stream-callers.md).
 
 ## Root and copied streams
 
@@ -34,8 +34,8 @@ The indexed setter at `0x080268B4` maps index 64 into the halfword-backed indexe
 
 ## Remaining unknowns
 
-- Which callers supply the two zero-terminated streams and whether they are mutable source data, copied resources, or another format.
-- Why selectors 0 and 1 use streams stored at offsets `+4` and `+0x56`, while selectors 5–7 use indexed ROM pointer tables.
+- The game-level meanings of indexed values 64, 65, and 240 and the state halfword checked by one initialization caller.
+- Why selectors 0 and 1 can be refreshed from either a ROM pointer table or a context structure, while selectors 5–7 use other indexed ROM pointer tables.
 - The meanings of the remaining fields and the 24-byte records beginning at `+0xC0`.
-- Whether the stream-copy routines rely on trusted, correctly terminated inputs; no local bounds check is present in the observed code.
+- Whether callers guarantee correctly terminated source streams; no local bounds check is present in the copy routines.
 
