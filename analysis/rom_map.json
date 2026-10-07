@@ -2122,22 +2122,22 @@
     },
     {
       "start": "0x004C78DC",
-      "end": "0x004CAD24",
+      "end": "0x004CABAC",
       "kind": "unclassified",
       "mode": null,
       "label": null,
       "confidence": "unknown"
     },
     {
-      "start": "0x004CAD24",
-      "end": "0x004CAD2C",
+      "start": "0x004CABAC",
+      "end": "0x004CAFAC",
       "kind": "pointer_data",
       "mode": null,
-      "label": "event_handler_table_entries_94_95",
+      "label": "event_handler_dispatch_table_256_entries",
       "confidence": "confirmed"
     },
     {
-      "start": "0x004CAD2C",
+      "start": "0x004CAFAC",
       "end": null,
       "kind": "unclassified",
       "mode": null,
