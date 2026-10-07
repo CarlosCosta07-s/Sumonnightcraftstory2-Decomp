@@ -43,7 +43,7 @@ void enqueue_transfer_request_08013A20(
     volatile uint16_t *count =
         (volatile uint16_t *)(uintptr_t)TRANSFER_QUEUE_COUNT;
 
-    if (*count > 79u) {
+    if (*count >= TRANSFER_QUEUE_CAP) {
         return;
     }
 
@@ -107,7 +107,7 @@ void initialize_runtime_object_0800A380(
     volatile uint8_t *record = (volatile uint8_t *)(uintptr_t)(
         OBJECT_RECORDS + (uint32_t)object_index * OBJECT_RECORD_SIZE);
     volatile uint16_t *record_words_10 =
-        (volatile uint16_t *)(uintptr_t)(uintptr_t)(record + 0x10u);
+        (volatile uint16_t *)(uintptr_t)(record + 0x10u);
 
     record_words_10[0] = 0;
     record_words_10[1] = 0;
