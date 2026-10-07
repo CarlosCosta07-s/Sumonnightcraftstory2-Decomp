@@ -1626,6 +1626,30 @@
     },
     {
       "start": "0x00026960",
+      "end": "0x00026B14",
+      "kind": "unclassified",
+      "mode": null,
+      "label": null,
+      "confidence": "unknown"
+    },
+    {
+      "start": "0x00026B14",
+      "end": "0x00026B44",
+      "kind": "code",
+      "mode": "thumb",
+      "label": "dispatch_event_handler_by_command",
+      "confidence": "high"
+    },
+    {
+      "start": "0x00026B44",
+      "end": "0x00026B4C",
+      "kind": "literal_data",
+      "mode": null,
+      "label": "event_handler_dispatch_literals",
+      "confidence": "confirmed"
+    },
+    {
+      "start": "0x00026B4C",
       "end": "0x00069270",
       "kind": "unclassified",
       "mode": null,
@@ -1786,6 +1810,54 @@
     },
     {
       "start": "0x000726E4",
+      "end": "0x00073AE0",
+      "kind": "unclassified",
+      "mode": null,
+      "label": null,
+      "confidence": "unknown"
+    },
+    {
+      "start": "0x00073AE0",
+      "end": "0x00073B06",
+      "kind": "code",
+      "mode": "thumb",
+      "label": "event_command_94_set_selector_64",
+      "confidence": "high"
+    },
+    {
+      "start": "0x00073B06",
+      "end": "0x00073B08",
+      "kind": "padding",
+      "mode": null,
+      "label": null,
+      "confidence": "high"
+    },
+    {
+      "start": "0x00073B08",
+      "end": "0x00073B10",
+      "kind": "literal_data",
+      "mode": null,
+      "label": "selector_64_handler_literals",
+      "confidence": "confirmed"
+    },
+    {
+      "start": "0x00073B10",
+      "end": "0x00073B38",
+      "kind": "code",
+      "mode": "thumb",
+      "label": "event_command_95_set_selector_65",
+      "confidence": "high"
+    },
+    {
+      "start": "0x00073B38",
+      "end": "0x00073B40",
+      "kind": "literal_data",
+      "mode": null,
+      "label": "selector_65_handler_literals",
+      "confidence": "confirmed"
+    },
+    {
+      "start": "0x00073B40",
       "end": "0x004C7880",
       "kind": "unclassified",
       "mode": null,
@@ -1802,6 +1874,22 @@
     },
     {
       "start": "0x004C78DC",
+      "end": "0x004CAD24",
+      "kind": "unclassified",
+      "mode": null,
+      "label": null,
+      "confidence": "unknown"
+    },
+    {
+      "start": "0x004CAD24",
+      "end": "0x004CAD2C",
+      "kind": "pointer_data",
+      "mode": null,
+      "label": "event_handler_table_entries_94_95",
+      "confidence": "confirmed"
+    },
+    {
+      "start": "0x004CAD2C",
       "end": null,
       "kind": "unclassified",
       "mode": null,
