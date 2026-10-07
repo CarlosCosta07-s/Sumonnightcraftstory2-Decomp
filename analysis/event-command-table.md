@@ -2,7 +2,7 @@
 
 The event dispatcher at `0x08026B14` reads an 8-bit command number and indexes a 32-bit pointer table. The table starts at ROM offset `0x004CABAC` (`0x084CABAC`) and contains 256 entries, ending at `0x004CAFAC`. This lies within the first 5 MiB of the ROM. The table has 69 null entries and 187 non-null entries. Entry 94 and 95 were previously confirmed as handlers `0x08073AE0` and `0x08073B10`.
 
-A pointer-pattern sweep over aligned words in file offsets `0x000000`–`0x4FFFFF` produced 18,524 pointer-like values. Most cannot be treated as function references without context; the dispatcher's command-byte indexing and the coherent Thumb entry points provide the evidence for this table. The table and the handlers below are mapped in [rom_map.json](rom_map.json).
+A pointer-pattern sweep over aligned words in file offsets `0x000000`–`0x4FFFFF` produced 18,524 pointer-like values. Most cannot be treated as function references without context; the dispatcher's command-byte indexing and the coherent Thumb entry points provide the evidence for this table. The 256-entry table is now mapped in [rom_map.json](rom_map.json); handler targets and observed function extents are cataloged below, pending exact code/literal-pool segmentation in the map.
 
 ## Additional non-null entries 169–255
 
@@ -52,22 +52,22 @@ A pointer-pattern sweep over aligned words in file offsets `0x000000`–`0x4FFFF
 | 233 | `0x080243C4` |
 | 234 | `0x08022EE4` |
 | 235 | `0x080243F4` |
-| 237 | `0x0802440C` |
-| 238 | `0x08024470` |
-| 239 | `0x08024490` |
-| 245 | `0x080244CC` |
-| 246 | `0x080244FC` |
-| 247 | `0x0802456C` |
-| 248 | `0x080245B4` |
-| 249 | `0x080245D4` |
-| 250 | `0x08024604` |
-| 251 | `0x08024640` |
-| 252 | `0x08024660` |
-| 253 | `0x08024698` |
+| 237 | `0x0802456C` |
+| 238 | `0x080245B4` |
+| 239 | `0x080245D4` |
+| 245 | `0x08024604` |
+| 246 | `0x08024640` |
+| 247 | `0x08024660` |
+| 248 | `0x08024698` |
+| 249 | `0x080246D4` |
+| 250 | `0x08024704` |
+| 251 | `0x08024744` |
+| 252 | `0x08024774` |
+| 253 | `0x080247A8` |
 | 254 | `0x080247D8` |
 | 255 | `0x08022FE4` |
 
-All listed targets have Thumb entry alignment (`pointer & ~1`) and visible function prologues/returns. The newly identified handler bodies occupy two dense code clusters: file offsets `0x00022924`–`0x000230B0` and `0x00023DCC`–`0x00024828`. The handler targets and observed function extents are cataloged here; the ROM map still needs their individual code and literal-pool boundaries.
+All listed targets have Thumb entry alignment (`pointer & ~1`) and visible function prologues/returns. The newly identified handler bodies occupy two dense code clusters: file offsets `0x00022924`–`0x000230B0` and `0x00023DCC`–`0x00024828`. The handler targets and observed function extents are cataloged here. Their exact code and literal-pool boundaries remain to be added to the ROM map.
 
 ## Reconstructed handler example: command 173
 
