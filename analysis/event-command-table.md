@@ -67,7 +67,7 @@ A pointer-pattern sweep over aligned words in file offsets `0x000000`–`0x4FFFF
 | 254 | `0x080247D8` |
 | 255 | `0x08022FE4` |
 
-All listed targets have Thumb entry alignment (`pointer & ~1`) and visible function prologues/returns. The newly identified handler bodies occupy two dense code clusters: file offsets `0x00022924`–`0x000230B0` and `0x00023DCC`–`0x00024828`. Their code, observed literal pools, and unclassified gaps are now separated in the ROM map.
+All listed targets have Thumb entry alignment (`pointer & ~1`) and visible function prologues/returns. The newly identified handler bodies occupy two dense code clusters: file offsets `0x00022924`–`0x000230B0` and `0x00023DCC`–`0x00024828`. The handler targets and observed function extents are cataloged here; the ROM map still needs their individual code and literal-pool boundaries.
 
 ## Reconstructed handler example: command 173
 
