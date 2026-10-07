@@ -69,7 +69,14 @@ A pointer-pattern sweep over aligned words in file offsets `0x000000`–`0x4FFFF
 
 All listed targets have Thumb entry alignment (`pointer & ~1`) and visible function prologues/returns. The newly identified handler bodies occupy two dense code clusters: file offsets `0x00022924`–`0x000230B0` and `0x00023DCC`–`0x00024828`. Each listed handler is mapped through its return instruction. Intervening bytes were left unclassified rather than guessed as literal pools.
 
-## Reconstructed handler example: command 173
+## Source-like handler reconstructions
+
+Commands 169, 172, and 175 now also have source-like C reconstructions:
+- Command 169 calls helper `0x08015BAC`, sets byte `+1` of the structure pointed to by the root slot at `0x03006598`, and returns zero.
+- Command 172 clears bit 2 and sets bit 0 in the halfword pointed to by the root slot at `0x03006558`, passes the resulting halfword to helper `0x0801F2FC`, and returns zero.
+- Command 175 evaluates the current expression stream through `0x08025F4C`, discards its return value, sets byte `+1` under root slot `0x03006598`, and returns zero.
+
+These behaviors are visible in the instructions; the helpers' game-level roles and the meaning of the state and flag bytes are still unresolved. Their C files are linked from the repository README.
 
 Handler 173 calls `0x08026878` to obtain an index-like value, sign-extends its low halfword, and uses a 16-byte stride into the structure rooted at `0x03006558`, with base offset `0x1EDC`. If the record's signed halfword at `+0` is zero, the handler evaluates the current expression stream, stores its low halfword at `+4`, and changes the `+0` halfword to one. If the phase is one, it decrements the signed `+4` halfword and resets the phase to zero when the result is nonpositive. It returns the phase halfword. A C reconstruction is in [`src/event_command_173.c`](../src/event_command_173.c).
 
