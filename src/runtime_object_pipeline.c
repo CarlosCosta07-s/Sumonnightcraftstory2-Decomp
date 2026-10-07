@@ -1,7 +1,7 @@
 /*
  * Evidence-based C reconstruction of the object setup and transfer-queue path.
- * Names describe observed data flow; the meanings of the descriptor markers
- * and the queue's eventual consumer are still unresolved.
+ * Names describe observed data flow; descriptor-marker meanings and the
+ * exact asset domain remain unresolved.
  */
 #include <stdint.h>
 
@@ -53,6 +53,37 @@ void enqueue_transfer_request_08013A20(
     entry[1] = (uint32_t)destination;
     entry[2] = (uint16_t)byte_count;
     *count = (uint16_t)(*count + 1u);
+}
+
+/*
+ * ROM 0x080139C4 drains requests from the highest queued index to zero.
+ * Each request programs DMA3 in immediate, 32-bit mode and waits for its
+ * enable bit to clear before processing the preceding entry. The routine
+ * leaves the queue count unchanged.
+ */
+void drain_transfer_requests_080139C4(void)
+{
+    int32_t index = (int32_t)REG16(TRANSFER_QUEUE_COUNT) - 1;
+    volatile uint32_t *entry = (volatile uint32_t *)(uintptr_t)(
+        TRANSFER_QUEUE + (uint32_t)index * 12u);
+    volatile uint32_t *dma3 = (volatile uint32_t *)(uintptr_t)0x040000D4u;
+
+    if (index < 0) {
+        return;
+    }
+
+    do {
+        dma3[0] = entry[0];
+        dma3[1] = entry[1];
+        dma3[2] = (entry[2] >> 2) | 0x84000000u;
+
+        while ((dma3[2] & 0x80000000u) != 0) {
+            /* DMA3 clears bit 31 when the transfer completes. */
+        }
+
+        --index;
+        entry -= 3;
+    } while (index >= 0);
 }
 
 void reset_transfer_request_count_08013A54(void)
