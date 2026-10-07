@@ -433,7 +433,47 @@
       "confidence": "confirmed"
     },
     {
-      "start": "0x00003dd8",
+      "start": "0x00003DD8",
+      "end": "0x00004144",
+      "kind": "unclassified",
+      "mode": null,
+      "label": null,
+      "confidence": "unknown"
+    },
+    {
+      "start": "0x00004144",
+      "end": "0x000042C6",
+      "kind": "code",
+      "mode": "thumb",
+      "label": "prepare_object_data_08004144",
+      "confidence": "high"
+    },
+    {
+      "start": "0x000042C6",
+      "end": "0x000042C8",
+      "kind": "padding",
+      "mode": null,
+      "label": null,
+      "confidence": "high"
+    },
+    {
+      "start": "0x000042C8",
+      "end": "0x000042D0",
+      "kind": "literal_data",
+      "mode": null,
+      "label": "object_data_helper_literals",
+      "confidence": "confirmed"
+    },
+    {
+      "start": "0x000042D0",
+      "end": "0x000043A4",
+      "kind": "code",
+      "mode": "thumb",
+      "label": "process_object_command_stream_080042D0",
+      "confidence": "high"
+    },
+    {
+      "start": "0x000043A4",
       "end": "0x00005768",
       "kind": "unclassified",
       "mode": null,
@@ -457,7 +497,23 @@
       "confidence": "high"
     },
     {
-      "start": "0x000057d8",
+      "start": "0x000057D8",
+      "end": "0x00006330",
+      "kind": "unclassified",
+      "mode": null,
+      "label": null,
+      "confidence": "unknown"
+    },
+    {
+      "start": "0x00006330",
+      "end": "0x000063FC",
+      "kind": "code",
+      "mode": "thumb",
+      "label": "copy_runtime_blocks_08006330",
+      "confidence": "high"
+    },
+    {
+      "start": "0x000063FC",
       "end": "0x00007534",
       "kind": "unclassified",
       "mode": null,
@@ -617,8 +673,160 @@
       "confidence": "confirmed"
     },
     {
-      "start": "0x000077fc",
-      "end": "0x0000cef8",
+      "start": "0x000077FC",
+      "end": "0x0000A304",
+      "kind": "unclassified",
+      "mode": null,
+      "label": null,
+      "confidence": "unknown"
+    },
+    {
+      "start": "0x0000A304",
+      "end": "0x0000A37E",
+      "kind": "code",
+      "mode": "thumb",
+      "label": "scan_object_descriptor_list_0800A304",
+      "confidence": "high"
+    },
+    {
+      "start": "0x0000A37E",
+      "end": "0x0000A380",
+      "kind": "padding",
+      "mode": null,
+      "label": null,
+      "confidence": "high"
+    },
+    {
+      "start": "0x0000A380",
+      "end": "0x0000A4E2",
+      "kind": "code",
+      "mode": "thumb",
+      "label": "initialize_runtime_object_0800A380",
+      "confidence": "high"
+    },
+    {
+      "start": "0x0000A4E2",
+      "end": "0x0000A4E4",
+      "kind": "padding",
+      "mode": null,
+      "label": null,
+      "confidence": "high"
+    },
+    {
+      "start": "0x0000A4E4",
+      "end": "0x0000A4E8",
+      "kind": "pointer_data",
+      "mode": null,
+      "label": "default_object_source_pointer_literal",
+      "confidence": "confirmed"
+    },
+    {
+      "start": "0x0000A4E8",
+      "end": "0x0000A62C",
+      "kind": "unclassified",
+      "mode": null,
+      "label": null,
+      "confidence": "unknown"
+    },
+    {
+      "start": "0x0000A62C",
+      "end": "0x0000A682",
+      "kind": "code",
+      "mode": "thumb",
+      "label": "refresh_runtime_object_strip_0800A62C",
+      "confidence": "high"
+    },
+    {
+      "start": "0x0000A682",
+      "end": "0x0000A684",
+      "kind": "padding",
+      "mode": null,
+      "label": null,
+      "confidence": "high"
+    },
+    {
+      "start": "0x0000A684",
+      "end": "0x0000A68C",
+      "kind": "literal_data",
+      "mode": null,
+      "label": "runtime_object_refresh_literals",
+      "confidence": "confirmed"
+    },
+    {
+      "start": "0x0000A68C",
+      "end": "0x0000A6FE",
+      "kind": "code",
+      "mode": "thumb",
+      "label": "remove_runtime_object_0800A68C",
+      "confidence": "high"
+    },
+    {
+      "start": "0x0000A6FE",
+      "end": "0x0000A700",
+      "kind": "padding",
+      "mode": null,
+      "label": null,
+      "confidence": "high"
+    },
+    {
+      "start": "0x0000A700",
+      "end": "0x0000A70C",
+      "kind": "literal_data",
+      "mode": null,
+      "label": "runtime_object_release_literals",
+      "confidence": "confirmed"
+    },
+    {
+      "start": "0x0000A70C",
+      "end": "0x0000A7E0",
+      "kind": "unclassified",
+      "mode": null,
+      "label": null,
+      "confidence": "unknown"
+    },
+    {
+      "start": "0x0000A7E0",
+      "end": "0x0000A87C",
+      "kind": "code",
+      "mode": "thumb",
+      "label": "allocate_object_transfer_nodes_0800A7E0",
+      "confidence": "high"
+    },
+    {
+      "start": "0x0000A87C",
+      "end": "0x0000A88C",
+      "kind": "literal_data",
+      "mode": null,
+      "label": "object_transfer_node_literals",
+      "confidence": "confirmed"
+    },
+    {
+      "start": "0x0000A88C",
+      "end": "0x0000A8D8",
+      "kind": "code",
+      "mode": "thumb",
+      "label": "allocate_object_transfer_nodes_0800A7E0",
+      "confidence": "high"
+    },
+    {
+      "start": "0x0000A8D8",
+      "end": "0x0000A8E4",
+      "kind": "literal_data",
+      "mode": null,
+      "label": "object_transfer_node_literals",
+      "confidence": "confirmed"
+    },
+    {
+      "start": "0x0000A8E4",
+      "end": "0x0000A914",
+      "kind": "code",
+      "mode": "thumb",
+      "label": "allocate_object_transfer_nodes_0800A7E0",
+      "confidence": "high"
+    },
+    {
+      "start": "0x0000A914",
+      "end": "0x0000CEF8",
       "kind": "unclassified",
       "mode": null,
       "label": null,
@@ -1105,8 +1313,72 @@
       "confidence": "confirmed"
     },
     {
-      "start": "0x0000d244",
-      "end": "0x0002660c",
+      "start": "0x0000D244",
+      "end": "0x00013A20",
+      "kind": "unclassified",
+      "mode": null,
+      "label": null,
+      "confidence": "unknown"
+    },
+    {
+      "start": "0x00013A20",
+      "end": "0x00013A4A",
+      "kind": "code",
+      "mode": "thumb",
+      "label": "enqueue_transfer_request_08013A20",
+      "confidence": "high"
+    },
+    {
+      "start": "0x00013A4A",
+      "end": "0x00013A4C",
+      "kind": "padding",
+      "mode": null,
+      "label": null,
+      "confidence": "high"
+    },
+    {
+      "start": "0x00013A4C",
+      "end": "0x00013A54",
+      "kind": "literal_data",
+      "mode": null,
+      "label": "transfer_queue_base_literals",
+      "confidence": "confirmed"
+    },
+    {
+      "start": "0x00013A54",
+      "end": "0x00013A5C",
+      "kind": "code",
+      "mode": "thumb",
+      "label": "reset_transfer_request_count_08013A54",
+      "confidence": "high"
+    },
+    {
+      "start": "0x00013A5C",
+      "end": "0x00013A60",
+      "kind": "literal_data",
+      "mode": null,
+      "label": "transfer_queue_count_literal",
+      "confidence": "confirmed"
+    },
+    {
+      "start": "0x00013A60",
+      "end": "0x00013A78",
+      "kind": "code",
+      "mode": "thumb",
+      "label": "clear_transfer_request_queue_08013A60",
+      "confidence": "high"
+    },
+    {
+      "start": "0x00013A78",
+      "end": "0x00013A80",
+      "kind": "literal_data",
+      "mode": null,
+      "label": "transfer_queue_clear_literals",
+      "confidence": "confirmed"
+    },
+    {
+      "start": "0x00013A80",
+      "end": "0x0002660C",
       "kind": "unclassified",
       "mode": null,
       "label": null,
