@@ -1786,6 +1786,22 @@
     },
     {
       "start": "0x000726E4",
+      "end": "0x004C7880",
+      "kind": "unclassified",
+      "mode": null,
+      "label": null,
+      "confidence": "unknown"
+    },
+    {
+      "start": "0x004C7880",
+      "end": "0x004C78DC",
+      "kind": "pointer_data",
+      "mode": null,
+      "label": "object_source_pointer_table_084C7880",
+      "confidence": "confirmed"
+    },
+    {
+      "start": "0x004C78DC",
       "end": null,
       "kind": "unclassified",
       "mode": null,
