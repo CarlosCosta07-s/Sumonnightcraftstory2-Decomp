@@ -64,13 +64,14 @@ void enqueue_transfer_request_08013A20(
 void drain_transfer_requests_080139C4(void)
 {
     int32_t index = (int32_t)REG16(TRANSFER_QUEUE_COUNT) - 1;
-    volatile uint32_t *entry = (volatile uint32_t *)(uintptr_t)(
-        TRANSFER_QUEUE + (uint32_t)index * 12u);
     volatile uint32_t *dma3 = (volatile uint32_t *)(uintptr_t)0x040000D4u;
 
     if (index < 0) {
         return;
     }
+
+    volatile uint32_t *entry = (volatile uint32_t *)(uintptr_t)(
+        TRANSFER_QUEUE + (uint32_t)index * 12u);
 
     do {
         dma3[0] = entry[0];
