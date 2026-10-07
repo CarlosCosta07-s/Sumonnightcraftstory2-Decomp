@@ -4,6 +4,8 @@ This note follows the object setup path from `0x0800A380` through its staging bu
 
 ## Direct observations
 
+The adjacent data block rooted at `0x03006894` is documented separately in [runtime-data-block-02001000.md](runtime-data-block-02001000.md). It confirms that selector rows 0 and 1 are copied from zero-terminated halfword streams at offsets `+4` and `+0x56` of the block rooted at `0x02001000`; stream origin and semantic format remain unknown.
+
 ### Object setup at `0x0800A380`
 
 - The routine scans status byte `0` of records at `0x030034C0 + index*0x1C`, testing indices `0..19`.
@@ -49,3 +51,4 @@ The queue's producer, capacity, entry format, DMA3 drain, and direct call contex
 2. Identify the exact meaning and units of the node field at `+2`, and how it relates to configured VRAM range size `0x03003864`.
 3. Confirm the caller invariant that prevents object index 20 from being used.
 4. Explain why the queue drains in reverse order and how the polling-loop state at `0x030028E8` is entered/exited.
+5. Trace the callers and source data for the halfword-stream copy routines at `0x080726E4` and `0x0807292C`; their field layout and relationship to selectors 0/1 are documented, but their upstream inputs are not identified.
