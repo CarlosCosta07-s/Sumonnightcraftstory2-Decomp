@@ -75,7 +75,7 @@ The indirect path is resolved through the ROM handler table:
 - Handler `0x08073B10` does the same at block offset `+0x54` and indexed value `65`.
 - Both handlers set byte `1` at `*(u32 *)0x03006598 + 1` and return zero.
 
-This proves that the event-command dispatch table can refresh both selector indices using the result of `0x08025F4C`. The parser's output domain, the meaning of command IDs 94/95, and the constraints on values later used as pointer-table indices remain unresolved.
+This proves that the event-command dispatch table can refresh both selector indices using the result of `0x08025F4C`. The evaluator's stream and operator behavior is now reconstructed in [event-expression-processor.md](event-expression-processor.md); the game-level meaning of command IDs 94/95 and selector values 64/65, and the constraints on values later used as pointer-table indices, remain unresolved.
 
 ## Expression stream evaluator
 
