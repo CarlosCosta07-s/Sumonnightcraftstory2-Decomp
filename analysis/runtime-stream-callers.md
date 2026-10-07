@@ -1,6 +1,6 @@
 # Callers and ROM sources for the runtime halfword streams
 
-This note extends [runtime-data-block-02001000.md](runtime-data-block-02001000.md) with direct call sites and the ROM pointer values they pass. Addresses and conditions below come from the matching USA ROM, SHA-256 `E267F052A3F138534F198BD33992D640568F80BF807E322C85C7B4CF6DD504AC`.
+This note extends [runtime-data-block-02001000.md](runtime-data-block-02001000.md) with direct call sites and the ROM pointer values they pass. Source-like C reconstructions of the two selector event handlers are in [runtime_event_selector_handlers.c](../src/runtime_event_selector_handlers.c). Addresses and conditions below come from the matching USA ROM, SHA-256 `E267F052A3F138534F198BD33992D640568F80BF807E322C85C7B4CF6DD504AC`.
 
 ## Direct caller inventory
 
@@ -73,5 +73,6 @@ The indirect path is resolved through the ROM handler table:
 - Table entry 94 at `0x084CAD24` contains Thumb pointer `0x08073AE1`; entry 95 at `0x084CAD28` contains `0x08073B11`.
 - Handler `0x08073AE0` runs `0x08025F4C`, then stores its low-byte result at block offset `+0` and indexed value `64`.
 - Handler `0x08073B10` does the same at block offset `+0x54` and indexed value `65`.
+- Both handlers set byte `1` at `*(u32 *)0x03006598 + 1` and return zero.
 
 This proves that the event-command dispatch table can refresh both selector indices using the result of `0x08025F4C`. The parser's output domain, the meaning of command IDs 94/95, and the constraints on values later used as pointer-table indices remain unresolved.
