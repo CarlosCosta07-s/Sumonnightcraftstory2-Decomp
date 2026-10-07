@@ -51,4 +51,4 @@ The queue's producer, capacity, entry format, DMA3 drain, and direct call contex
 2. Identify the exact meaning and units of the node field at `+2`, and how it relates to configured VRAM range size `0x03003864`.
 3. Confirm the caller invariant that prevents object index 20 from being used.
 4. Explain why the queue drains in reverse order and how the polling-loop state at `0x030028E8` is entered/exited.
-5. Identify the meanings of selector values 64, 65, and 240, decode the halfword sequences, and determine why the context-based and ROM-table paths both refresh rows 0/1.
+5. Trace how script/event return values written by `0x08073AE0` and `0x08073B10` reach the selector path; decode the halfword sequences and determine the meanings of indexed values 64, 65, and 240. The writer callsites and current gaps are in [runtime-stream-callers.md](runtime-stream-callers.md).
