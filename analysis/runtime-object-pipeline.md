@@ -22,6 +22,9 @@ There is no explicit “no free record” return in the observed control flow. A
 ### Descriptor parsing and staging
 
 - `0x0800A304` reads halfwords until zero. It masks values with `0xF0FF`; a value matching `0xC083` selects one of the 16 rows at `0x030038C0 + selector*0x22`, with selector in bits 8–11. The selected row is scanned through its zero terminator. The routine also compares against `0x7087`.
+
+- The ROM pointer list at `0x084C7880` begins with pointers `0x0808EE18`, `0x0808EE24`, and `0x0808EE1C`; additional entries point through `0x0808EFA4`. The fallback in `0x0800A380` dereferences the first word of this list. A setup path around `0x0800A206–0x0800A260` calls `0x0800D00C` with selector tags `0xC083`, `0xC183`, `0xC583`, `0xC683`, and `0xC783`, so rows 0, 1, 5, 6, and 7 are directly observed in that path. The tag's selector nibble is used by `0x0800D00C`; the meaning of the row data remains unknown.
+- The target at `0x0808EE18` starts with halfwords `0x4081, 0x0000, 0x8367, 0x838A, 0x8358, 0x0000`. This is consistent with zero-terminated halfword sequences, but the codes are not identified as text or another resource format.
 - `0x08004144` clears 480 words (1,920 bytes) at the scratch pointer `*(0x03003008)` using BIOS CpuFastSet, with the supplied fill value. It then interprets the source/command words, reads the same selector rows, and calls `0x080053AC`, `0x080061A4`, and `0x080057D8` on other entries. At the end it calls `0x08006330` to transfer the generated scratch data into the staging destination.
 - `0x080042D0` also reads the command words and selector rows. It writes into the destination in 96-byte steps and calls `0x08005954` or `0x08005960`.
 
