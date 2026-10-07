@@ -26,7 +26,7 @@ The accessors in the surrounding range show these write locations relative to th
 | `+0x22+2*i`, `+0x2C+2*i`, `+0x36+2*i` | halfword | indexed setters at `0x080727BC`, `0x080727D0`, and `0x080727E4` |
 | `+0x40+i`, `+0x43`, `+0x49` | byte | indexed or fixed byte setters at `0x08072806`, `0x0807281C`, and `0x0807282A` |
 | `+0x4C`, `+0x50` | word | setters clamp values to `0x0098967F` before storing |
-| `+0x54) | byte | `0x08072968` stores its argument's low byte and writes the value through indexed setter at index 65 |
+| `+0x54 | byte | `0x08072968` stores its argument's low byte and writes the value through indexed setter at index 65 |
 | `+0x56` | halfword stream | zero-terminated copy destination of `0x0807292C` |
 | `+0xC0+24*i+6`, `+0xC0+24*i+7` | bytes | setters at `0x08072D74` and `0x08072D90` write two per-entry byte fields |
 
