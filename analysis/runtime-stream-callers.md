@@ -76,3 +76,9 @@ The indirect path is resolved through the ROM handler table:
 - Both handlers set byte `1` at `*(u32 *)0x03006598 + 1` and return zero.
 
 This proves that the event-command dispatch table can refresh both selector indices using the result of `0x08025F4C`. The parser's output domain, the meaning of command IDs 94/95, and the constraints on values later used as pointer-table indices remain unresolved.
+
+## Expression stream evaluator
+
+The output-producing part previously left open is now reconstructed at `0x08025F4C`; see [event-expression-processor.md](event-expression-processor.md) and [`src/event_expression_processor.c`](../src/event_expression_processor.c). It is a zero-terminated postfix evaluator with literal and typed-variable operands, unary and binary operators, and a 32-bit result stack. The 16 operator destinations are in a jump table at file offset `0x000260E0`. Commands 94 and 95 retain only the low byte of the result. The evaluator has no explicit stream-length or stack bounds checks. These findings describe the execution format, but do not establish the game-level meaning of selector values 64 and 65 or command IDs 94 and 95.
+
+The neighboring routine at `0x080261B8` maps the high byte of the context tag to mode bytes 2 through 6; the source-like reconstruction is [`src/event_context_mode.c`](../src/event_context_mode.c).
