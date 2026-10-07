@@ -1314,11 +1314,67 @@
     },
     {
       "start": "0x0000D244",
-      "end": "0x00013A20",
+      "end": "0x000139AC",
       "kind": "unclassified",
       "mode": null,
       "label": null,
       "confidence": "unknown"
+    },
+    {
+      "start": "0x000139AC",
+      "end": "0x000139B6",
+      "kind": "code",
+      "mode": "thumb",
+      "label": "reset_transfer_request_count_wrapper_080139AC",
+      "confidence": "high"
+    },
+    {
+      "start": "0x000139B6",
+      "end": "0x000139B8",
+      "kind": "padding",
+      "mode": null,
+      "label": null,
+      "confidence": "high"
+    },
+    {
+      "start": "0x000139B8",
+      "end": "0x000139C2",
+      "kind": "code",
+      "mode": "thumb",
+      "label": "reset_transfer_request_count_wrapper_080139B8",
+      "confidence": "high"
+    },
+    {
+      "start": "0x000139C2",
+      "end": "0x000139C4",
+      "kind": "padding",
+      "mode": null,
+      "label": null,
+      "confidence": "high"
+    },
+    {
+      "start": "0x000139C4",
+      "end": "0x00013A12",
+      "kind": "code",
+      "mode": "thumb",
+      "label": "drain_transfer_requests_dma3_080139C4",
+      "confidence": "high"
+    },
+    {
+      "start": "0x00013A12",
+      "end": "0x00013A14",
+      "kind": "padding",
+      "mode": null,
+      "label": null,
+      "confidence": "high"
+    },
+    {
+      "start": "0x00013A14",
+      "end": "0x00013A20",
+      "kind": "literal_data",
+      "mode": null,
+      "label": "transfer_queue_and_dma3_literals",
+      "confidence": "confirmed"
     },
     {
       "start": "0x00013A20",
